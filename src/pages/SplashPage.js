@@ -10,18 +10,18 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image, StyleSheet, Text, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import NavigationService from "../common/NavigationService";
 import MainPage from "./MainPage";
+import { LAUNCH_SCREEN } from "../common/ImageSource";
 
 const SplashPage = () => {
   /*-------------------------生命周期----------------------------*/
   React.useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
-      NavigationService.reset("MainPage");
+      NavigationService.reset("LoginPage");
     }, 2000);
   });
   /*-------------------------API----------------------------*/
@@ -30,7 +30,7 @@ const SplashPage = () => {
   /*-------------------------子视图----------------------------*/
   /*-------------------------主视图----------------------------*/
   return (
-    <View style={styles.container}/>
+    <Image source={LAUNCH_SCREEN} style={styles.container}/>
   );
 };
 export default SplashPage;

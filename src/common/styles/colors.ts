@@ -2,6 +2,7 @@ type Neutral =
   | "white"
   | "black"
   | "clear"
+  | "red"
   | "grayF7"
   | "grayF5"
   | "grayFA"
@@ -23,12 +24,13 @@ export const neutral: Record<Neutral, string> = {
   clear: "rgba(0,0,0,0)",
   gray33: "#333",
   gray66: "#666",
-  gray99: "#999"
+  gray99: "#999",
+  red: "#FF0000"
 };
 
 type Primary = "primary" | "red" | "green" | "orange";
 export const theme: Record<Primary, string> = {
-  primary: "#00bbee",
+  primary: "#17D1EB",
   red: "#FF4D4D",
   green: "#55C21B",
   orange: "#FF6A2A"

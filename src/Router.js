@@ -13,11 +13,19 @@ import { Provider } from "mobx-react/native";
 import { connect } from "react-redux";
 import AddDevicesPage from "./pages/Home/AddDevicePage";
 import { isAndroid } from "./common/Base";
+import LoginPage from "./pages/Login/LoginPage";
+import SpecialArticlePage from "./pages/Common/SpecialArticlePage";
+import RegisterPage from "./pages/Login/RegisterPage";
+import VerifyPage from "./pages/Login/VerifyPage";
 
 const AppNavigator = createStackNavigator({
     SplashPage,
     MainPage,
-    AddDevicesPage
+    LoginPage,
+    RegisterPage,
+    VerifyPage,
+    AddDevicesPage,
+    SpecialArticlePage
   },
   {
     defaultNavigationOptions: {

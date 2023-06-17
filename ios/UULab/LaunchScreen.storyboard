@@ -16,13 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="vr8-VX-NPm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vr8-VX-NPm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" red="0.70723974704742432" green="0.16712966561317444" blue="0.14440780878067017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vr8-VX-NPm" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="EGw-Wi-BQt"/>
+                            <constraint firstItem="vr8-VX-NPm" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="WeP-cl-BXa"/>
+                            <constraint firstAttribute="bottom" secondItem="vr8-VX-NPm" secondAttribute="bottom" id="nlF-r6-vaS"/>
+                            <constraint firstItem="vr8-VX-NPm" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="x38-Fc-K5o"/>
+                        </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="430" height="932"/>
                 </viewController>
@@ -32,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="1242" height="2688"/>
+        <image name="launch" width="375" height="812"/>
     </resources>
 </document>
