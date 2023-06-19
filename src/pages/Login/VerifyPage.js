@@ -7,6 +7,7 @@ import { SOURCE_BG_LOGIN } from "../../common/ImageSource";
 import { Colors, Layout, Sizing } from "../../common/styles";
 import TextUtils from "../../common/TextUtils";
 import { InputAccountView, InputCodeView, InputPasswordView, OpacityPrimaryButton } from "./LoginPage";
+import I18n from "react-native-i18n";
 
 const VerifyPage = () => {
   const [isComplete, setIsComplete] = React.useState(false);
@@ -49,7 +50,7 @@ const VerifyPage = () => {
     let opacity = isComplete ? 1 : 0.5;
     let marginTop = Sizing.adaptionSpace(184);
     return <OpacityPrimaryButton
-      title={"下一步"}
+      title={I18n.t('next')}
       style={{ marginTop }}
       opacity={opacity}
       callback={onClickNext} />;
@@ -77,27 +78,27 @@ const VerifyPage = () => {
     return(
       <View style={Layout.flex.column}>
         <View style={{marginBottom: Sizing.adaptionSpace(24)}}>
-          <Text style={styles.titleTextStyle}>请重设您账号密码</Text>
+          <Text style={styles.titleTextStyle}>{I18n.t('reset_your_password')}</Text>
         </View>
         <InputPasswordView
           hasError={false}
           showAction={false}
           showTips={false}
-          placeholder={'请输入密码'}
+          placeholder={I18n.t('enter_password')}
           onChangeText={(text) => {
             onChangeText(text, 1);
           }} />
         <InputPasswordView
           hasError={false}
-          placeholder={'请输入确认密码'}
+          placeholder={I18n.t('enter_password_again')}
           showAction={false}
           showTips={true}
-          tip={'密码长度8～16位'}
+          tip={I18n.t('password_length_tip')}
           style={{marginTop: Sizing.adaptionSpace(53)}}
           onChangeText={(text) => {
             onChangeText(text, 1);
           }} />
-        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t20 }]}>两次密码不一致</Text>
+        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t20 }]}>{I18n.t('password_reset_error_tip')}</Text>
       </View>
     )
   }
@@ -110,7 +111,7 @@ const VerifyPage = () => {
         <View style={Layout.flex.full} />
         <View style={styles.infoContainer}>
           <View style={styles.logoContainer}>
-            <Text style={styles.titleTextStyle}>重置密码</Text>
+            <Text style={styles.titleTextStyle}>{I18n.t('reset_password')}</Text>
           </View>
           {step===1?renderVerifyView():renderSetView()}
           {renderNextBtn()}

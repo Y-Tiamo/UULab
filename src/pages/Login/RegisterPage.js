@@ -16,6 +16,7 @@ import DoubleClick from "../../common/components/DoubleClick";
 import TextUtils from "../../common/TextUtils";
 import NavigationService from "../../common/NavigationService";
 import { AppLogo, AppPolicyView, InputAccountView, InputCodeView, LoginType, OpacityPrimaryButton } from "./LoginPage";
+import I18n from "react-native-i18n";
 
 export const RegisterType = {
   USER: 0,
@@ -70,7 +71,7 @@ const RegisterPage = (props) => {
     return (
       <View style={[styles.inputContainer, styles.inputPwdContainer, { marginTop }]}>
         <TextInput
-          placeholder={"请输入您的真实姓名"}
+          placeholder={I18n.t('please_enter_your_real_name')}
           style={[styles.inputTextStyle, Layout.flex.full]}
           value={name}
           onChangeText={(text) => {
@@ -98,7 +99,7 @@ const RegisterPage = (props) => {
           style={[registerType === RegisterType.USER ? styles.selectBorderStyle : styles.unselectBorderStyle, { marginRight: Sizing.adaptionSpace(22) }]}>
           <Image source={SOURCE_ROLE_USER} />
           <Text
-            style={registerType === RegisterType.USER ? styles.selectTextStyle : styles.unselectTextStyle}>普通用户</Text>
+            style={registerType === RegisterType.USER ? styles.selectTextStyle : styles.unselectTextStyle}>{I18n.t('ordinary_users')}</Text>
           <Image source={registerType === RegisterType.USER ? SOURCE_ROLE_CHOOSE : SOURCE_ROLE_UN_CHOOSE}
                  style={styles.roleChooseIconStyle} />
         </DoubleClick>
@@ -109,7 +110,7 @@ const RegisterPage = (props) => {
           style={registerType === RegisterType.MANAGER ? styles.selectBorderStyle : styles.unselectBorderStyle}>
           <Image source={SOURCE_ROLE_MANAGER} />
           <Text
-            style={registerType === RegisterType.MANAGER ? styles.selectTextStyle : styles.unselectTextStyle}>管理员</Text>
+            style={registerType === RegisterType.MANAGER ? styles.selectTextStyle : styles.unselectTextStyle}>{I18n.t('administrators')}</Text>
           <Image source={registerType === RegisterType.MANAGER ? SOURCE_ROLE_CHOOSE : SOURCE_ROLE_UN_CHOOSE}
                  style={styles.roleChooseIconStyle} />
         </DoubleClick>
@@ -121,7 +122,7 @@ const RegisterPage = (props) => {
     let opacity = isComplete ? 1 : 0.5;
     let marginTop = Sizing.adaptionSpace(40);
     return <OpacityPrimaryButton
-      title={"注册"}
+      title={I18n.t('register_now')}
       style={{ marginTop }}
       opacity={opacity}
       callback={onClickLog} />;
@@ -134,13 +135,13 @@ const RegisterPage = (props) => {
           params.callback && params.callback(LoginType.PWD_LOGIN);
           NavigationService.navigate("");
         }}>
-          <Text style={styles.normalTextStyle}>密码登录</Text>
+          <Text style={styles.normalTextStyle}>{I18n.t('log_on_with_password')}</Text>
         </DoubleClick>
         <DoubleClick onPress={() => {
           params.callback && params.callback(LoginType.CODE_LOGIN);
           NavigationService.navigate("");
         }}>
-          <Text style={styles.normalTextStyle}>验证码登录</Text>
+          <Text style={styles.normalTextStyle}>{I18n.t('log_on_with_code')}</Text>
         </DoubleClick>
       </View>
     );

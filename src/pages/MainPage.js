@@ -31,6 +31,7 @@ import I18n from "react-native-i18n";
 import { connect } from "react-redux";
 import Models from "../models";
 import { getBottomSpace } from "react-native-iphone-x-helper";
+import { Sizing } from "../common/styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +46,6 @@ const MainPage = () => {
     return (
       <Tab.Navigator
         initialRouteName="Home"
-        activeColor="#e91e63"
         barStyle={styles.tabBarStyle}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
@@ -61,7 +61,12 @@ const MainPage = () => {
             }
             return <Image source={iconName}/>;
           },
-          headerShown:false
+          headerShown:false,
+          tabBarActiveTintColor:"#2F2F2F",
+          tabBarStyle:{
+            borderTopLeftRadius:Sizing.adaptionSpace(24),
+            borderTopRightRadius:Sizing.adaptionSpace(24),
+          }
         })}>
         <Tab.Screen
           name="Home"

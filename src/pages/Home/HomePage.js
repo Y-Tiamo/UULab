@@ -9,66 +9,74 @@
  * * * * * * * * * * * * * * * * * * *
  */
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import I18n from "react-native-i18n";
-import DoubleClick from "../../common/components/DoubleClick";
-import { Colors, Layout, Sizing } from "../../common/styles";
-import ActionService from "../../common/ActionService";
+import { StyleSheet, View } from "react-native";
+import { Sizing } from "../../common/styles";
 import { HomeHeader } from "../../components/navHeader.component";
-import NavigationService from "../../common/NavigationService";
-import Button from "teaset/components/Button/Button";
 import { connect } from "react-redux";
 import Models from "../../models";
+import { SceneMap } from "react-native-tab-view";
+import { DeviceList } from "../../container/DeviceList.container";
+import { BLTabView } from "../../components/BLTabView.component";
+import I18n from "react-native-i18n";
 
 const HomePage = () => {
   const [groupID, setGroupID] = React.useState("123456789");
   /*-------------------------生命周期----------------------------*/
-  React.useEffect(() => {});
+  React.useEffect(() => {
+  });
+  /*-------------------------数据----------------------------*/
+  const routes = [
+    {
+      key: "all",
+      title: I18n.t('device_status_all'),
+    },
+    {
+      key: "running",
+      title: I18n.t('device_status_running'),
+    },
+    {
+      key: "waiting",
+      title: I18n.t('device_status_standby'),
+    },
+    {
+      key: "offline",
+      title: I18n.t('device_status_offline'),
+    },
+    {
+      key: "error",
+      title: I18n.t('device_status_fault'),
+    },
+  ];
   /*-------------------------API----------------------------*/
   /*-------------------------回调事件----------------------------*/
   /*-------------------------事件----------------------------*/
-  const onClickChangeLocalLanguage = (type) => {
-    I18n.locale = type;
-    ActionService.dispatch({
-      type: "home/updateLocaleEnv",
-      payload: { language: type },
-    });
-  };
-
-  const onClickToAdd = () => {
-    NavigationService.navigate("AddDevicesPage");
-  };
   /*-------------------------子视图----------------------------*/
+  const renderScene = SceneMap(
+    {
+      all: () => <DeviceList status={0} />,
+      running: () => <DeviceList status={1} />,
+      waiting: () => <DeviceList status={2} />,
+      offline: () => <DeviceList status={3} />,
+      error: () => <DeviceList status={4} />,
+    },
+  );
+
   /*-------------------------主视图----------------------------*/
   return (
-    <>
-      <HomeHeader title={groupID} num={"12"} />
-      <View style={{ flexDirection: "row", paddingLeft: Sizing.t15, marginVertical: Sizing.t15 }}>
-        <DoubleClick
-          onPress={() => onClickChangeLocalLanguage("zh-CN")}
-          style={styles.button}>
-          <Text>简体中文</Text>
-        </DoubleClick>
-        <DoubleClick
-          onPress={() => onClickChangeLocalLanguage("zh-TW")}
-          style={styles.button}>
-          <Text>繁體中文</Text>
-        </DoubleClick>
-        <DoubleClick
-          onPress={() => onClickChangeLocalLanguage("en")}
-          style={styles.button}>
-          <Text>英文</Text>
-        </DoubleClick>
-      </View>
-      <Button
-        title={"添加设备"}
-        onPress={onClickToAdd}>
-      </Button>
-    </>
+    <View style={{ flex: 1, backgroundColor: "#F6FEFF", flexDirection: "column" }}>
+      <HomeHeader title={"UULabs"} isManager={true} />
+      <BLTabView
+        index={0}
+        routes={routes}
+        renderScene={renderScene}
+        tabStyle={{ width: Sizing.adaptionSpace(90)}}
+        scrollEnabled={true}
+      />
+    </View>
   );
 };
 export const Home = connect(state => ({
-  localeEnv: state[Models.home].localeEnv
+  localeEnv: state[Models.home].localeEnv,
 }))(HomePage);
 export default Home;
 
@@ -77,12 +85,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F5F5F5",
   },
-  button: {
-    ...Layout.center,
-    backgroundColor: Colors.neutral.grayE1,
-    flex: 1,
-    marginRight: Sizing.t15,
-    height: Sizing.adaptionSpace(40),
-    borderRadius: Sizing.t20,
-  },
+
 });

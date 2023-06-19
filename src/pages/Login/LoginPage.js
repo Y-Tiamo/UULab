@@ -16,6 +16,7 @@ import DoubleClick from "../../common/components/DoubleClick";
 import TextUtils from "../../common/TextUtils";
 import NavigationService from "../../common/NavigationService";
 import PactDialog from "../../common/components/PactDialog";
+import I18n from "react-native-i18n";
 
 export const LoginType = {
   PWD_LOGIN: 0,
@@ -30,9 +31,7 @@ const LoginPage = () => {
   const [hasError, setHasError] = React.useState(false);
 
   /*-------------------------生命周期----------------------------*/
-  React.useEffect(() => {
-    StatusBar.setHidden(true);
-  });
+  React.useEffect(() => {});
   /*-------------------------API----------------------------*/
 
   /*-------------------------回调事件----------------------------*/
@@ -56,7 +55,8 @@ const LoginPage = () => {
   };
 
   const onClickLog = () => {
-    setHasError(!hasError);
+    // setHasError(!hasError);
+    NavigationService.reset("MainPage")
   };
 
   const onClickPolicy = () => {
@@ -70,7 +70,7 @@ const LoginPage = () => {
       <InputPasswordView
         hasError={hasError}
         showAction={true}
-        tip={hasError ? "用户名密码不正确" : ""}
+        tip={hasError ? I18n.t('log_tip_error_password') : ""}
         showTips={hasError}
         style={{ marginTop: Sizing.adaptionSpace(24) }}
         onChangeText={(text) => {
@@ -94,14 +94,14 @@ const LoginPage = () => {
     let marginTop = loginType===LoginType.PWD_LOGIN ? Sizing.adaptionSpace(40) : hasError?Sizing.adaptionSpace(40):Sizing.adaptionSpace(62);
 
     return <OpacityPrimaryButton
-      title={"登录"}
+      title={I18n.t('log_on')}
       style={{ marginTop }}
       opacity={opacity}
       callback={onClickLog} />;
   }
 
   function renderSwitchLogType() {
-    let loginText = loginType === LoginType.PWD_LOGIN ? "验证码登录" : "密码登录";
+    let loginText = loginType === LoginType.PWD_LOGIN ? I18n.t('log_on_with_code') : I18n.t('log_on_with_password');
     return (
       <View style={styles.switchContainer}>
         <DoubleClick
@@ -113,7 +113,7 @@ const LoginPage = () => {
             });
           }}
         >
-          <Text style={styles.normalTextStyle}>立即注册</Text>
+          <Text style={styles.normalTextStyle}>{I18n.t('register_now')}</Text>
         </DoubleClick>
         <DoubleClick onPress={onClickChangeLog}>
           <Text style={styles.normalTextStyle}>{loginText}</Text>
@@ -126,6 +126,7 @@ const LoginPage = () => {
   /*-------------------------主视图----------------------------*/
   return (
     <ImageBackground source={SOURCE_BG_LOGIN} style={styles.bgStyle}>
+      <StatusBar hidden={false} barStyle={"light-content"} translucent={true} backgroundColor={Colors.neutral.clear} />
       <SafeAreaView style={styles.container}>
         <View style={Layout.flex.full} />
         <View style={styles.infoContainer}>
@@ -169,12 +170,12 @@ export const AppPolicyView = (props) => {
           break;
         case 2:
           NavigationService.navigate("SpecialArticlePage", {
-            title: "用户协议",
+            title: I18n.t("user_agreement"),
           });
           break;
         case 3:
           NavigationService.navigate("SpecialArticlePage", {
-            title: "隐私政策",
+            title: I18n.t("privacy_policy"),
           });
           break;
         default:
@@ -193,20 +194,20 @@ export const AppPolicyView = (props) => {
       <View style={styles.appPolicyContainer}>
         <Image style={styles.selectIcon} source={isAgree ? SOURCE_POLICY_NOT_SELECT : SOURCE_POLICY_SELECT} />
         <Text testID={"AppPolicy.agreement"} style={styles.policyNormalText}>
-          已阅读并同意UULabs
+          {I18n.t("read_and_agree")}UULabs
           <Text style={{ textDecorationLine: "underline" }} onPress={onClickPolicy}>
             <Text
               testID={"AppPolicy.UserPolicy"}
               style={styles.policyText}
             >
-              用户协议
+              {I18n.t('user_agreement')}
             </Text>
             &#8197;
             <Text
               testID={"AppPolicy.PrivacyPolicy"}
               style={styles.policyText}
             >
-              隐私政策
+              {I18n.t('privacy_policy')}
             </Text>
           </Text>
 
@@ -233,7 +234,7 @@ export const InputAccountView = (props) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
-        placeholder={"手机号/邮箱号"}
+        placeholder={I18n.t("log_phone_or_email")}
         style={styles.inputTextStyle}
         onChangeText={onChangeText}
       />
@@ -248,7 +249,7 @@ export const InputPasswordView = (props) => {
     <View style={Layout.flex.column}>
       <View style={[styles.inputContainer, styles.inputPwdContainer, style]}>
         <TextInput
-          placeholder={placeholder || "密码"}
+          placeholder={placeholder || I18n.t('log_password')}
           style={[styles.inputTextStyle, Layout.flex.full]}
           secureTextEntry={showPwd}
           onChangeText={onChangeText}
@@ -261,7 +262,7 @@ export const InputPasswordView = (props) => {
       </View>
       <View style={[Layout.flex.row, Layout.crossAxis.spaceBetween]}>
         {showTips ? <Text
-            style={[styles.errorTipTextStyle, { marginTop: Sizing.t4, color: tipColor }]}>{tip || "用户名密码不匹配"}</Text> :
+            style={[styles.errorTipTextStyle, { marginTop: Sizing.t4, color: tipColor }]}>{tip || I18n.t('log_tip_error_password')}</Text> :
           <View />}
         {showAction &&
           <DoubleClick
@@ -269,7 +270,7 @@ export const InputPasswordView = (props) => {
               NavigationService.navigate("VerifyPage");
             }
             }>
-            <Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>忘记密码</Text>
+            <Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>{I18n.t('forget_password')}</Text>
           </DoubleClick>
         }
       </View>
@@ -286,18 +287,18 @@ export const InputCodeView = (props) => {
     <View style={Layout.flex.column}>
       <View style={[styles.inputContainer, styles.inputPwdContainer, style]}>
         <TextInput
-          placeholder={"验证码"}
+          placeholder={I18n.t('log_code')}
           style={[styles.inputTextStyle, Layout.flex.full]}
           onChangeText={(text) => {
             onChangeText(text, 1);
           }}
         />
         <DoubleClick onPress={onClickSendCode}>
-          <Text style={styles.sendCodeTextStyle}>{send ? "重新发送" : "发送验证码"}</Text>
+          <Text style={styles.sendCodeTextStyle}>{send ? I18n.t('log_on_re_send') : I18n.t('log_send_code')}</Text>
         </DoubleClick>
       </View>
       {hasError && <View style={[Layout.flex.row, Layout.crossAxis.spaceBetween]}>
-        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t4 }]}>验证码错误，请重新输入</Text>
+        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t4 }]}>{I18n.t('log_on_re_enter_code')}</Text>
         {/*<Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>接收不到验证码</Text>*/}
       </View>}
     </View>

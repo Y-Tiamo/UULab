@@ -10,11 +10,11 @@
  */
 
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StatusBar, StyleSheet, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import NavigationService from "../common/NavigationService";
-import MainPage from "./MainPage";
 import { LAUNCH_SCREEN } from "../common/ImageSource";
+import { Colors } from "../common/styles";
 
 const SplashPage = () => {
   /*-------------------------生命周期----------------------------*/
@@ -30,7 +30,10 @@ const SplashPage = () => {
   /*-------------------------子视图----------------------------*/
   /*-------------------------主视图----------------------------*/
   return (
-    <Image source={LAUNCH_SCREEN} style={styles.container}/>
+    <View>
+      <StatusBar hidden={true} />
+      <Image source={LAUNCH_SCREEN} style={styles.container}/>
+    </View>
   );
 };
 export default SplashPage;

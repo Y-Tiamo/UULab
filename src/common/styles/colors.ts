@@ -3,6 +3,7 @@ type Neutral =
   | "black"
   | "clear"
   | "red"
+  | "grayF8"
   | "grayF7"
   | "grayF5"
   | "grayFA"
@@ -14,6 +15,7 @@ type Neutral =
   | "gray99";
 export const neutral: Record<Neutral, string> = {
   white: "#ffffff",
+  grayF8: "#F8F8F8",
   grayF7: "#F7F7F7",
   grayF5: "#F5F5F5",
   grayFA: "#FAFAFA",

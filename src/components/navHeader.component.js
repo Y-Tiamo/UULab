@@ -1,7 +1,11 @@
 import React from "react";
-import { Colors, Sizing, Typography } from "../common/styles";
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
-import { IMG_COMMON_ARR_LeftBlack } from "../common/ImageSource";
+import { Colors, Layout, Sizing, Typography } from "../common/styles";
+import { Image, SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  IMG_COMMON_ARR_LeftBlack,
+  SOURCE_ARROW_DOWN_WHITE,
+  SOURCE_MANAGER_ADD_DEVICES_WHITE, SOURCE_SCAN_WHITE,
+} from "../common/ImageSource";
 import NavigationService from "../common/NavigationService";
 import Header from "../common/components/Header";
 import PropTypes from "prop-types";
@@ -27,22 +31,31 @@ export const NavHeader = props => {
 };
 
 export const HomeHeader = props => {
+  const {title,isManager}=props
   return (
     <>
       <StatusBar barStyle={"light-content"} translucent={false} backgroundColor={Colors.theme.primary} />
       <View style={{
         backgroundColor: Colors.theme.primary,
-        borderBottomLeftRadius:Sizing.adaptionSpace(20),
-        borderBottomRightRadius:Sizing.adaptionSpace(20),
+        borderBottomLeftRadius:Sizing.adaptionSpace(24),
+        borderBottomRightRadius:Sizing.adaptionSpace(24),
       }}>
         <SafeAreaView>
           <View style={{
-            height: Sizing.adaptionSpace(68),
-            paddingHorizontal: Sizing.t12,
-            flexDirection: "column",
-            justifyContent: "center",
+            ...Layout.flex.row,
+            ...Layout.crossAxis.spaceBetween,
+            ...Layout.mainAxis.center,
+            height: Sizing.adaptionSpace(60),
+            paddingHorizontal: Sizing.t20,
           }}>
-            <Text style={{ color: "white", fontSize: Sizing.t18 }}>{props.title}</Text>
+            <View style={[Layout.flex.row,Layout.mainAxis.center]}>
+              <Text style={{ color: "white", fontSize: Sizing.t16 }}>{title}</Text>
+              <Image source={SOURCE_ARROW_DOWN_WHITE} style={{marginLeft:Sizing.t4}}/>
+            </View>
+            <View style={Layout.center}>
+              <Image source={isManager?SOURCE_MANAGER_ADD_DEVICES_WHITE:SOURCE_SCAN_WHITE} style={{marginBottom:Sizing.t4}}/>
+              {!isManager&&<Text style={{ color: "white", fontSize: Sizing.t10 }}>扫一扫</Text>}
+            </View>
           </View>
         </SafeAreaView>
       </View>
