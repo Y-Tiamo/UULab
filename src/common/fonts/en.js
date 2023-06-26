@@ -10,6 +10,7 @@ export default {
   confirm:'Confirm',
   cancel:'Cancel',
   next:'Next',
+  delete:'Delete',
 
   //登录-begin
   //登录界面
@@ -72,4 +73,8 @@ export default {
   device_info_tab_fix:'Fix',
   device_info_tab_history:'History',
   //设备信息页面-end
+
+  //消息模块-begin
+
+  //消息模块-end
 }

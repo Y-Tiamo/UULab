@@ -1,17 +1,17 @@
 /**----------------------------------------------------------------*/
-import React, { useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import FlatList from "../components/floatList.component";
-import { Colors, Layout, Sizing } from "../common/styles";
-import PageEmpty from "../components/pageEmpty.component";
-import { DeviceHeader } from "../components/pageListHeader.component";
+import React, {useState} from "react";
+import {Image, StyleSheet, Text, View} from "react-native";
+import RNFlatList from "../components/floatList.component";
+import {Colors, Layout, Sizing} from "../common/styles";
+import {EmptyDeviceList} from "../components/pageEmpty.component";
+import {DeviceHeader} from "../components/pageListHeader.component";
 import mock from "../models/mock";
 import {
-  SOURCE_DEVICE_ERROR,
-  SOURCE_DEVICE_OFFLINE,
-  SOURCE_DEVICE_RUNNING,
-  SOURCE_DEVICE_SAVE,
-  SOURCE_DEVICE_WAITING,
+  SOURCE_INSTRUMENT_ERROR,
+  SOURCE_INSTRUMENT_MAIN,
+  SOURCE_INSTRUMENT_OFFLINE,
+  SOURCE_INSTRUMENT_RUN,
+  SOURCE_INSTRUMENT_STANDBY,
 } from "../common/ImageSource";
 import DoubleClick from "../common/components/DoubleClick";
 import InputDeviceAccountOverlay from "./inputDeviceLinkAccount.Overlay";
@@ -19,7 +19,7 @@ import I18n from "react-native-i18n";
 
 /**----------------------------------------------------------------*/
 
-export const DeviceList = props => {
+const DeviceList = props => {
   const { status } = props;
   const [listData, setListData] = useState({
     dataList: [],
@@ -116,7 +116,7 @@ export const DeviceList = props => {
   };
 
   return (
-    <FlatList
+    <RNFlatList
       style={styles.listContent}
       data={listData.dataList}
       total={listData.total}
@@ -127,11 +127,12 @@ export const DeviceList = props => {
         return <DeviceHeader />;
       }}
       renderItem={renderItem}
-      ListEmptyComponent={<PageEmpty.EmptyCollectList />}
+      ListEmptyComponent={<EmptyDeviceList />}
     />
   );
 };
 
+export default DeviceList
 export const DeviceStatus = (props) => {
   const {item}=props
   let hasFix = item.fix_status === 1;
@@ -148,31 +149,31 @@ const DeviceStatusIcon=(props)=>{
   const IconInfo=[
     {
       title:I18n.t('device_status_running'),
-      icon:'',
+      icon:SOURCE_INSTRUMENT_RUN,
       backgroundColor:'rgba(60, 189, 97, 0.1)',
       color:"rgba(60, 189, 97, 1)"
     },
     {
       title:I18n.t('device_status_standby'),
-      icon:'',
+      icon:SOURCE_INSTRUMENT_STANDBY,
       backgroundColor:'rgba(23, 209, 235, 0.1)',
       color:"rgba(23, 209, 235, 1)"
     },
     {
       title:I18n.t('device_status_offline'),
-      icon:'',
+      icon:SOURCE_INSTRUMENT_OFFLINE,
       backgroundColor:'rgba(65, 114, 217, 0.1)',
       color:"rgba(65, 114, 217, 1)"
     },
     {
       title:I18n.t('device_status_fault'),
-      icon:'',
+      icon:SOURCE_INSTRUMENT_ERROR,
       backgroundColor:'rgba(255, 44, 0, 0.1)',
       color:"rgba(255, 44, 0, 1)"
     },
     {
       title:I18n.t('device_status_fix'),
-      icon:'',
+      icon:SOURCE_INSTRUMENT_MAIN,
       backgroundColor:'rgba(239, 147, 0, 0.1)',
       color:"rgba(239, 147, 0, 1)"
     },

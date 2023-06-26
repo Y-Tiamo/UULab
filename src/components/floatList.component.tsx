@@ -2,27 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { ListFooter } from "./pageListFooter.component";
 import PageEmpty from "./pageEmpty.component";
-import { View,RefreshControl } from "react-native";
+import {View, RefreshControl, FlatList} from "react-native";
 import { Layout } from "../common/styles";
 
-let RNFlatList: any = require("react-native").FlatList;
-
-interface TaroFlatListProps {
-  onEndReached?: Function;
-  onScroll?: Function;
-  isRefreshing: Boolean;
-  onRefresh?: Function;
-  onRenderTop?: Function;
-  onRenderBottom?: Function;
-  onRenderEmpty?: Function;
-  refreshControl?: Element;
-  renderItem: Function;
-  data: Object;
-  style?: Object;
-  total: Number;
-}
-
-const FlatList: React.FC<TaroFlatListProps> = props => {
+const RNFlatList = props => {
   const {
     onRefresh,
     isRefreshing,
@@ -92,7 +75,7 @@ const FlatList: React.FC<TaroFlatListProps> = props => {
   return (
     // @ts-ignore
     <View style={Layout.flex.full}>
-      <RNFlatList
+      <FlatList
         style={style}
         data={data}
         ListHeaderComponent={onRenderTop && onRenderTop()}
@@ -111,4 +94,4 @@ const FlatList: React.FC<TaroFlatListProps> = props => {
   );
 };
 
-export default FlatList;
+export default RNFlatList;

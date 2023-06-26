@@ -1,4 +1,9 @@
-import { SOURCE_DEFAULT_DEVICE } from "../common/ImageSource";
+import {
+  SOURCE_DEFAULT_DEVICE,
+  SOURCE_MESSAGE_EXIT_GROUP,
+  SOURCE_MESSAGE_GROUP,
+  SOURCE_MESSAGE_INSTRUMENT
+} from "../common/ImageSource";
 
 const data = [
   {
@@ -92,6 +97,76 @@ const data = [
   },
 ];
 
+const messages={
+  instrument_error:[{
+    instrument_name:'仪器名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    protocol_name:'程序名称',
+    instrument_account:'操作员',
+    error_code:'故障原因',
+    time:'2023年06月26日，上午10:11',
+  }],
+  maintain :[{
+    instrument_name:'仪器名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    note:'维护类型',
+    time:'2023年06月26日，上午10:11',
+  }],
+  run_start :[{
+    instrument_name:'仪器名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    protocol_name:'程序名称',
+    instrument_account:'操作员',
+    time:'2023年06月26日，上午10:11',
+  }],
+  run_finish :[{
+    protocol_name:'程序名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    instrument_account:'操作员',
+    begin_time:'2023年06月26日，上午10:11',
+    end_time:'2023年06月26日，上午10:11',
+  }],
+  run_stop :[{
+    protocol_name:'程序名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    instrument_account:'操作员',
+    note:'线上终止',
+    time:'2023年06月26日，上午10:11',
+  }],
+  instrument_shutdown :[{
+    instrument_name:'仪器名称',
+    lab_name:"科室名称",
+    pn_number:'3123313234424-23132342434',
+    time:'2023年06月26日，上午10:11',
+  }],
+  exit_group :[{
+    icon: SOURCE_MESSAGE_EXIT_GROUP,
+    title: '退出群聊',
+    color: "#8C9AB5",
+    message:{},
+    unread_count:0
+  }],
+  group_message :[{
+    icon: SOURCE_MESSAGE_GROUP,
+    title: '群消息',
+    color: "#8C9AB5",
+    message:{},
+    unread_count:0
+  }],
+  instrument_apply:[{
+    icon: SOURCE_MESSAGE_INSTRUMENT,
+    title: '仪器',
+    color: "#8C9AB5",
+    message:{},
+    unread_count:0
+  }],
+}
+
 class DeviceData {
   getDeviceByType(status) {
     let list = [];
@@ -104,6 +179,16 @@ class DeviceData {
         }
       })
     }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ data: { data: list, total: list.length } });
+      });
+    });
+  }
+
+  getMessagesByType(type){
+    console.log('getMessagesByType',type)
+    let list=messages[type]||[]
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({ data: { data: list, total: list.length } });

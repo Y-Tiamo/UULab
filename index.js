@@ -2,7 +2,7 @@
  * @format
  */
 import React from "react";
-import { AppRegistry, Text, TextInput } from "react-native";
+import {AppRegistry, LogBox, Text, TextInput} from "react-native";
 import { name as appName } from "./app.json";
 import Router, { routerMiddleware, routerReducer } from "./src/Router";
 import I18n from "react-native-i18n";
@@ -34,6 +34,11 @@ I18n.translations = {
 TextInput.defaultProps = { ...TextInput.defaultProps, allowFontScaling: false };
 Text.defaultProps = { ...Text.defaultProps, allowFontScaling: false };
 
+// Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
 const App = app.startApp(<Router />);
 const store = app.getStore();
 NavigationService.setTopLevelNavigator(store);

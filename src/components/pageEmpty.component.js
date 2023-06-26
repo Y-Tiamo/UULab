@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { Colors, Layout, Sizing, Typography } from "../common/styles";
 import { SOURCE_EMPTY_DEVICES_LIST } from "../common/ImageSource";
 
-const EmptyDeviceList = props => {
+export const EmptyDeviceList = props => {
   return (
     <View style={[styles.content, props.style]}>
       <Image style={styles.imgStyle} source={SOURCE_EMPTY_DEVICES_LIST} />
@@ -12,7 +12,7 @@ const EmptyDeviceList = props => {
   );
 };
 
-const NormalEmptyList = props => {
+export const NormalEmptyList = props => {
   const { icon, desc } = props;
   return (
     <View style={[styles.content, props.style]}>

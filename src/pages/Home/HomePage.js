@@ -15,9 +15,9 @@ import { HomeHeader } from "../../components/navHeader.component";
 import { connect } from "react-redux";
 import Models from "../../models";
 import { SceneMap } from "react-native-tab-view";
-import { DeviceList } from "../../container/DeviceList.container";
 import { BLTabView } from "../../components/BLTabView.component";
 import I18n from "react-native-i18n";
+import DeviceList from "../../container/DeviceList.container";
 
 const HomePage = () => {
   const [groupID, setGroupID] = React.useState("123456789");
@@ -85,5 +85,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F5F5F5",
   },
-
 });

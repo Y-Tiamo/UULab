@@ -230,10 +230,10 @@ android {
             keyPassword 'android'
         }
         release {
-            storePassword 'UULabs'
-            keyAlias 'UULabs'
-            keyPassword 'UULabs'
-            storeFile file('UULabs.jks')
+            storePassword 'as@666'
+            keyAlias 'key0'
+            keyPassword 'as@666'
+            storeFile file('release.jks')
         }
     }
     buildTypes {

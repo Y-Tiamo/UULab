@@ -41,6 +41,11 @@ export const SOURCE_DEVICE_ERROR = require('../assets/ic_error.png');
 export const SOURCE_DEVICE_SAVE = require('../assets/ic_save.png');
 export const SOURCE_BG_ADD_DEVICE = require('../assets/ic_room_expend.png');
 export const SOURCE_ADD_DEVICE_ERROR = require('../assets/ic_link_error.png');
+export const SOURCE_INSTRUMENT_RUN = require('../assets/ic_instrument_run.png');
+export const SOURCE_INSTRUMENT_STANDBY = require('../assets/ic_instrument_standby.png');
+export const SOURCE_INSTRUMENT_MAIN = require('../assets/ic_instrument_main.png');
+export const SOURCE_INSTRUMENT_ERROR = require('../assets/ic_instrument_error.png');
+export const SOURCE_INSTRUMENT_OFFLINE = require('../assets/ic_instrument_offline.png');
 //消息
 export const SOURCE_MESSAGE_ERROR = require('../assets/ic_message_error.png');
 export const SOURCE_MESSAGE_FIX = require('../assets/ic_message_fix.png');

@@ -11,6 +11,7 @@ export default {
   //通用
   confirm:'确定',
   cancel:'取消',
+  delete:'删除',
 
 
   //登录-begin
