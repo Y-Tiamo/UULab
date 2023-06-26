@@ -10,10 +10,16 @@
  */
 
 import React from "react";
-import { ScrollView, SafeAreaView, StatusBar, StyleSheet, View, Text } from "react-native";
-import { Colors, Sizing } from "../../common/styles";
+import { ScrollView, SafeAreaView, StatusBar, StyleSheet, View, Text, Image, ImageBackground } from "react-native";
+import { Colors, Layout, Sizing } from "../../common/styles";
 import { connect } from "react-redux";
 import Models from "../../models";
+import {
+  SOURCE_BG_PERSON,
+  SOURCE_DEFAULT_AVATAR,
+  SOURCE_TO_PERSON_CENTER,
+  SOURCE_TO_SERVICE_CENTER,
+} from "../../common/ImageSource";
 
 const MinePage = () => {
   /*-------------------------生命周期----------------------------*/
@@ -23,21 +29,27 @@ const MinePage = () => {
   /*-------------------------子视图----------------------------*/
   function renderHeader() {
     return (
-      <View style={styles.headerStyle} />
+      <ImageBackground source={SOURCE_BG_PERSON} style={styles.headerStyle} >
+        <View style={{flex:1, alignSelf:'flex-start',flexDirection: "row", alignItems: "center"}}>
+          <Image source={SOURCE_DEFAULT_AVATAR} style={styles.avatarStyle} />
+          <Text style={styles.nicknameStyle}>昵称</Text>
+        </View>
+        <Image source={SOURCE_TO_PERSON_CENTER} style={styles.personBtnStyle}/>
+        <Image source={SOURCE_TO_SERVICE_CENTER} style={styles.serviceBtnStyle}/>
+      </ImageBackground>
     );
   }
 
   /*-------------------------主视图----------------------------*/
   return (
     <>
-      <StatusBar barStyle={"light-content"} translucent={false} />
-      {renderHeader()}
+      <StatusBar barStyle={"light-content"} translucent={true} backgroundColor={Colors.neutral.clear} />
       <SafeAreaView style={styles.container}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={styles.avatarStyle} />
-          <Text style={styles.nicknameStyle}>昵称</Text>
-        </View>
-        <ScrollView style={{ flex: 1, backgroundColor: Colors.neutral.grayF5 }}>
+        {renderHeader()}
+        <ScrollView style={{flex:1,backgroundColor:Colors.neutral.grayF8}}>
+          <View style={styles.menuContainerStyle}>
+
+          </View>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -54,20 +66,38 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.theme.primary,
   },
   avatarStyle: {
-    height: Sizing.adaptionSpace(60),
-    width: Sizing.adaptionSpace(60),
-    borderRadius: Sizing.adaptionSpace(30),
+    height: Sizing.adaptionSpace(76),
+    width: Sizing.adaptionSpace(76),
+    borderRadius: Sizing.adaptionSpace(38),
     backgroundColor: Colors.neutral.white,
     marginHorizontal: Sizing.t14,
-    marginVertical: Sizing.adaptionSpace(44),
+    marginVertical: Sizing.adaptionSpace(74),
   },
   headerStyle: {
-    height: Sizing.adaptionSpace(300),
+    ...Layout.flex.column,
+    ...Layout.crossAxis.spaceBetween,
+    ...Layout.mainAxis.center,
+    height: Sizing.adaptionSpace(305),
+    width: Sizing.screen.width,
     backgroundColor: Colors.theme.primary,
-    position: "absolute",
   },
   nicknameStyle: {
     color: Colors.neutral.white,
     fontSize: Sizing.t16,
   },
+  menuContainerStyle:{
+    ...Layout.flex.full,
+    backgroundColor:Colors.neutral.grayF8
+  },
+  personBtnStyle:{
+    position:'absolute',
+    top:Sizing.adaptionSpace(134),
+    right:0
+  },
+  serviceBtnStyle:{
+    // position:'absolute',
+    // bottom:0,
+    // left: Sizing.adaptionSpace(20)
+  }
+
 });
