@@ -81,8 +81,7 @@ export const DeviceList = props => {
   };
 
   const onClickItem = (item) => {
-    InputDeviceAccountOverlay.show(I18n.t("local_device_account"), "", () => {
-    }, I18n.t("confirm"));
+    InputDeviceAccountOverlay.show(item);
   };
 
   /**
@@ -98,45 +97,23 @@ export const DeviceList = props => {
           onClickItem(item);
         }}
         key={String(item) + index}
-        style={{ marginTop: Sizing.adaptionSpace(27), marginHorizontal: Sizing.t20 }}>
-        <View style={{
-          backgroundColor: Colors.neutral.white,
-          borderRadius: Sizing.adaptionSpace(6),
-          paddingBottom: Sizing.t10,
-        }}>
-          <View style={{ marginTop: Sizing.t20, marginLeft: Sizing.adaptionSpace(134) }}>
-            <Text style={{ fontSize: Sizing.t14, color: Colors.neutral.gray33 }}>{item.name}</Text>
-            <Text style={{
-              fontSize: Sizing.t12,
-              color: Colors.neutral.gray66,
-              marginVertical: Sizing.t10,
-            }}>{item.type + " " + item.no}</Text>
-            <Text style={{ fontSize: Sizing.t12, color: Colors.neutral.gray66 }}>{item.PN}</Text>
+        style={styles.itemStyle}>
+        <View style={styles.itemContentStyle}>
+          <View style={styles.infoContainer}>
+            <Text style={styles.nameStyle}>{item.name}</Text>
+            <Text style={styles.typeStyle}>{item.type + " " + item.no}</Text>
+            <Text style={styles.pnStyle}>{item.PN}</Text>
           </View>
-          <View style={[Layout.flex.row, Layout.mainAxis.center, {
-            marginTop: Sizing.adaptionSpace(3),
-            marginLeft: Sizing.t10,
-          }]}>
-            {renderDeviceStatus(item)}
-            <Text style={{ fontSize: Sizing.t10, color: Colors.neutral.gray33 }}>{item.room}</Text>
+          <View style={styles.iconContainerStyle}>
+            <DeviceStatus item={item}/>
+            <Text style={styles.roomStyle}>{item.room}</Text>
           </View>
         </View>
         <Image source={item.pic}
-               style={{ position: "absolute", top: Sizing.adaptionSpace(-15), left: Sizing.adaptionSpace(-5) }} />
+               style={styles.deviceIconStyle} />
       </DoubleClick>
     );
   };
-
-  function renderDeviceStatus(item) {
-    let ICON_SOURCE = item.status === 1 ? SOURCE_DEVICE_RUNNING : item.status === 2 ? SOURCE_DEVICE_WAITING : item.status === 3 ? SOURCE_DEVICE_OFFLINE : item.status === 4 ? SOURCE_DEVICE_ERROR : "";
-    let hasFix = item.fix_status === 1;
-    return (
-      <View style={Layout.flex.row}>
-        <Image source={ICON_SOURCE} style={{ marginRight: Sizing.t12 }} />
-        {hasFix && <Image source={SOURCE_DEVICE_SAVE} style={{ marginRight: Sizing.t12 }} />}
-      </View>
-    );
-  }
 
   return (
     <FlatList
@@ -154,6 +131,62 @@ export const DeviceList = props => {
     />
   );
 };
+
+export const DeviceStatus = (props) => {
+  const {item}=props
+  let hasFix = item.fix_status === 1;
+  return (
+    <View style={Layout.flex.row}>
+      <DeviceStatusIcon status={item.status}/>
+      {hasFix && <DeviceStatusIcon status={5} />}
+    </View>
+  );
+}
+const DeviceStatusIcon=(props)=>{
+  const {status}=props
+  let index=status-1
+  const IconInfo=[
+    {
+      title:I18n.t('device_status_running'),
+      icon:'',
+      backgroundColor:'rgba(60, 189, 97, 0.1)',
+      color:"rgba(60, 189, 97, 1)"
+    },
+    {
+      title:I18n.t('device_status_standby'),
+      icon:'',
+      backgroundColor:'rgba(23, 209, 235, 0.1)',
+      color:"rgba(23, 209, 235, 1)"
+    },
+    {
+      title:I18n.t('device_status_offline'),
+      icon:'',
+      backgroundColor:'rgba(65, 114, 217, 0.1)',
+      color:"rgba(65, 114, 217, 1)"
+    },
+    {
+      title:I18n.t('device_status_fault'),
+      icon:'',
+      backgroundColor:'rgba(255, 44, 0, 0.1)',
+      color:"rgba(255, 44, 0, 1)"
+    },
+    {
+      title:I18n.t('device_status_fix'),
+      icon:'',
+      backgroundColor:'rgba(239, 147, 0, 0.1)',
+      color:"rgba(239, 147, 0, 1)"
+    },
+  ]
+  const Icon=IconInfo[index]
+  return(
+    <View style={[styles.statusIconContainerStyle,{backgroundColor:Icon.backgroundColor}]}>
+      <Image source={Icon.icon} style={{marginBottom:Sizing.t4}}/>
+      <Text style={{fontSize:Sizing.t12,color:Icon.color}}>{Icon.title}</Text>
+    </View>
+  )
+}
+
+
 const styles = StyleSheet.create({
   content: {
     flex: 1,
@@ -161,4 +194,53 @@ const styles = StyleSheet.create({
   listContent: {
     backgroundColor: Colors.neutral.grayF5,
   },
+  itemStyle: {
+    marginTop: Sizing.adaptionSpace(27),
+    marginHorizontal: Sizing.t20,
+  },
+  itemContentStyle: {
+    backgroundColor: Colors.neutral.white,
+    borderRadius: Sizing.adaptionSpace(6),
+    paddingBottom: Sizing.t10,
+  },
+  infoContainer: {
+    marginTop: Sizing.t20,
+    marginLeft: Sizing.adaptionSpace(134),
+  },
+  nameStyle: {
+    fontSize: Sizing.t14,
+    color: Colors.neutral.gray33,
+  },
+  typeStyle: {
+    fontSize: Sizing.t12,
+    color: Colors.neutral.gray66,
+    marginVertical: Sizing.t10,
+  },
+  pnStyle: {
+    fontSize: Sizing.t12,
+    color: Colors.neutral.gray66,
+  },
+  iconContainerStyle: {
+    ...Layout.flex.row,
+    ...Layout.mainAxis.center,
+    marginTop: Sizing.adaptionSpace(3),
+    marginLeft: Sizing.t10,
+  },
+  roomStyle: {
+    fontSize: Sizing.t10,
+    color: Colors.neutral.gray33,
+  },
+  deviceIconStyle: {
+    position: "absolute",
+    top: Sizing.adaptionSpace(-15),
+    left: Sizing.adaptionSpace(-5),
+  },
+  statusIconContainerStyle:{
+    ...Layout.center,
+    ...Layout.flex.row,
+    paddingHorizontal:Sizing.t12,
+    paddingVertical:Sizing.adaptionSpace(3),
+    borderRadius:Sizing.adaptionSpace(3),
+    marginRight:Sizing.t12
+  }
 });

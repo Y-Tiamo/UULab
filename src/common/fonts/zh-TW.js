@@ -47,6 +47,7 @@ export default {
   device_status_standby:'待機',
   device_status_offline:'離線',
   device_status_fault:'故障',
+  device_status_fix:'維修',
   local_device_account:'本地儀器帳號',
   please_enter_account:'請輸入帳號',
   please_enter_password:'請輸入密碼',
@@ -60,6 +61,15 @@ export default {
   input_or_select_device_room:'請輸入儀器歸屬科室名稱或選擇',
   connect_failed:'連接失敗',
   pn_not_match_key:'PN號和密鑰不匹配',
-  retry:'重識'
+  retry:'重識',
   //-添加设备页面-end
+
+  //设备信息页面-begin
+  device_info_action_pause:'暫停',
+  device_info_action_stop:'終止',
+  device_info_action_continue:'繼續',
+  device_info_tab_status:'狀態',
+  device_info_tab_fix:'維護',
+  device_info_tab_history:'歷史',
+  //设备信息页面-end
 }

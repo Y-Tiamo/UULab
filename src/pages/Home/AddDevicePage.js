@@ -78,6 +78,9 @@ const AddDevicesPage = () => {
   function renderScanIcon() {
     return (
       <DoubleClick
+        onPress={()=>{
+          NavigationService.navigate('ScanPage')
+        }}
         style={[Layout.mainAxis.center, { marginLeft: Sizing.adaptionSpace(23), marginTop: Sizing.t16 }]}>
         <Image source={SOURCE_SCAN_GRAY} style={{ marginBottom: Sizing.t4 }} />
         <Text style={{ fontSize: Sizing.t10, color: Colors.neutral.gray33 }}>扫一扫</Text>

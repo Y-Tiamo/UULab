@@ -18,6 +18,7 @@ import SpecialArticlePage from "./pages/Common/SpecialArticlePage";
 import RegisterPage from "./pages/Login/RegisterPage";
 import VerifyPage from "./pages/Login/VerifyPage";
 import DeviceInfoPage from "./pages/Home/DeviceInfoPage";
+import ScanPage from "./pages/Common/ScanPage";
 
 const AppNavigator = createStackNavigator({
     SplashPage,
@@ -27,7 +28,9 @@ const AppNavigator = createStackNavigator({
     VerifyPage,
     AddDevicesPage,
     DeviceInfoPage,
-    SpecialArticlePage
+    SpecialArticlePage,
+
+    ScanPage
   },
   {
     defaultNavigationOptions: {

@@ -9,13 +9,14 @@
  * * * * * * * * * * * * * * * * * * *
  */
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Colors } from "../../common/styles";
 import { NavHeader } from "../../components/navHeader.component";
 import { connect } from "react-redux";
 import Models from "../../models";
 import I18n from "react-native-i18n";
+import { RNCamera } from "react-native-camera";
 
 const ScanPage = () => {
 
@@ -32,8 +33,15 @@ const ScanPage = () => {
   return (
     <SafeAreaView style={styles.container}>
       <NavHeader title={I18n.t("scan")} />
-      <ScrollView style={styles.scrollStyle}>
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        <RNCamera
+          style={{ flex: 1 }}
+          onBarCodeRead={(barcode) => {
+            console.log(barcode.data);
+          }}
+        />
+      </View>
+
     </SafeAreaView>
   );
 };

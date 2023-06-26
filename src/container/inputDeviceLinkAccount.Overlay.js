@@ -14,15 +14,14 @@ import Overlay from "teaset/components/Overlay/Overlay";
 import { Colors, Layout, Sizing, Typography } from "../common/styles";
 import I18n from "react-native-i18n";
 import DoubleClick from "../common/components/DoubleClick";
+import NavigationService from "../common/NavigationService";
 
 class InputDeviceAccountOverlay extends Overlay {
-  static show(onConfirm = new Function()) {
+  static show(item) {
     const key = (
       <Overlay.PopView style={Layout.center} modal overlayOpacity={0.5} ref={view => (this.view = view)}>
         <InputContentView
-          options={{
-            onConfirm,
-          }}
+          item={item}
           onClose={() => {
             this.view && this.view.close();
           }}
@@ -35,8 +34,14 @@ class InputDeviceAccountOverlay extends Overlay {
 }
 
 const InputContentView = props => {
-  const { options, onClose } = props;
-  const [reason, setReason] = React.useState("");
+  const { item, onClose } = props;
+  const [account, setAccount] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const onClickConfirm = () => {
+    console.log("InputContentView_Account_Password",account,password)
+    NavigationService.navigate("DeviceInfoPage",{item:item})
+    onClose && onClose();
+  }
   return (
     <View style={styles.contentStyle}>
       <View style={{ marginVertical: Sizing.adaptionSpace(20), justifyContent: "center" }}>
@@ -48,7 +53,7 @@ const InputContentView = props => {
           placeholder={I18n.t('please_enter_account')}
           numberOfLines={1}
           onChangeText={text => {
-            setReason(text);
+            setAccount(text);
           }}
         />
       </View>
@@ -58,7 +63,7 @@ const InputContentView = props => {
           placeholder={I18n.t('please_enter_password')}
           numberOfLines={1}
           onChangeText={text => {
-            setReason(text);
+            setPassword(text);
           }}
         />
       </View>
@@ -75,10 +80,7 @@ const InputContentView = props => {
         <View style={{width:0.5,backgroundColor:Colors.neutral.grayE1,height:Sizing.adaptionSpace(69)}}/>
         <DoubleClick
           style={[Layout.center, Layout.flex.full]}
-          onPress={() => {
-            options.onConfirm && options.onConfirm(reason);
-            onClose && onClose();
-          }}
+          onPress={onClickConfirm}
         >
           <Text style={styles.confirmTextStyle}>{I18n.t("confirm")}</Text>
         </DoubleClick>

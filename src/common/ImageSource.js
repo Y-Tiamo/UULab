@@ -41,4 +41,14 @@ export const SOURCE_DEVICE_ERROR = require('../assets/ic_error.png');
 export const SOURCE_DEVICE_SAVE = require('../assets/ic_save.png');
 export const SOURCE_BG_ADD_DEVICE = require('../assets/ic_room_expend.png');
 export const SOURCE_ADD_DEVICE_ERROR = require('../assets/ic_link_error.png');
+//消息
+export const SOURCE_MESSAGE_ERROR = require('../assets/ic_message_error.png');
+export const SOURCE_MESSAGE_FIX = require('../assets/ic_message_fix.png');
+export const SOURCE_MESSAGE_RUN = require('../assets/ic_message_run.png');
+export const SOURCE_MESSAGE_FINISH = require('../assets/ic_message_finish.png');
+export const SOURCE_MESSAGE_STOP = require('../assets/ic_message_stop.png');
+export const SOURCE_MESSAGE_CLOSE = require('../assets/ic_message_close.png');
+export const SOURCE_MESSAGE_EXIT_GROUP = require('../assets/ic_message_exit_group.png');
+export const SOURCE_MESSAGE_GROUP = require('../assets/ic_message_group.png');
+export const SOURCE_MESSAGE_INSTRUMENT = require('../assets/ic_message_instrument.png');
 

@@ -48,6 +48,7 @@ export default {
   device_status_standby:'待机',
   device_status_offline:'离线',
   device_status_fault:'故障',
+  device_status_fix:'维修',
   local_device_account:'本地仪器账号',
   please_enter_account:'请输入账号',
   please_enter_password:'请输入密码',
@@ -61,6 +62,15 @@ export default {
   input_or_select_device_room:'请输入仪器归属科室名称或选择',
   connect_failed:'连接失败',
   pn_not_match_key:'PN号和密钥不匹配',
-  retry:'重试'
+  retry:'重试',
   //添加设备页面-end
+
+  //设备信息页面-begin
+  device_info_action_pause:'暂停',
+  device_info_action_stop:'终止',
+  device_info_action_continue:'继续',
+  device_info_tab_status:'状态',
+  device_info_tab_fix:'维护',
+  device_info_tab_history:'历史',
+  //设备信息页面-end
 };

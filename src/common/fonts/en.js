@@ -44,13 +44,15 @@ export default {
   //首页-begin
   device_status_all:'All',
   device_status_running:'Run',
-  device_status_standby:'StandBy',
+  device_status_standby:'Standby',
   device_status_offline:'Offline',
   device_status_fault:'Fault',
+  device_status_fix:'Fix',
   local_device_account:'Local instrument account',
   please_enter_account:'Please enter account',
   please_enter_password:'Please enter password',
   //首页-end
+
   //添加设备页面-begin
   add_device:'Add Device',
   scan:'Scan',
@@ -59,6 +61,15 @@ export default {
   input_or_select_device_room:'Please enter the name of the department to which the instrument belongs or select',
   connect_failed:'Connect failed',
   pn_not_match_key:'PN number does not match key',
-  retry:'Retry'
+  retry:'Retry',
   //添加设备页面-end
+
+  //设备信息页面-begin
+  device_info_action_pause:'Suspend',
+  device_info_action_stop:'Stop',
+  device_info_action_continue:'Continue',
+  device_info_tab_status:'State',
+  device_info_tab_fix:'Fix',
+  device_info_tab_history:'History',
+  //设备信息页面-end
 }
