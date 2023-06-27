@@ -10,28 +10,28 @@
  */
 
 import React from "react";
-import { Image, StyleSheet } from "react-native";
-import { Home } from "./Home/HomePage";
-import { Message } from "./Messages/MessagePage";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Invite } from "./Invite/InvitePage";
-import { Mine } from "./Mine/MinePage";
+import {Image, StyleSheet} from "react-native";
+import {Home} from "./Home/HomePage";
+import {Message} from "./Messages/MessagePage";
+import {NavigationContainer} from "@react-navigation/native";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {Invite} from "./Invite/InvitePage";
+import {Mine} from "./Mine/MinePage";
 import {
-  SOURCE_TAB_HOME,
-  SOURCE_TAB_HOME_SELECT,
-  SOURCE_TAB_Invite,
-  SOURCE_TAB_Invite_SELECT,
-  SOURCE_TAB_Message,
-  SOURCE_TAB_Message_SELECT,
-  SOURCE_TAB_MINE,
-  SOURCE_TAB_MINE_SELECT,
+    SOURCE_TAB_HOME,
+    SOURCE_TAB_HOME_SELECT,
+    SOURCE_TAB_Invite,
+    SOURCE_TAB_Invite_SELECT,
+    SOURCE_TAB_Message,
+    SOURCE_TAB_Message_SELECT,
+    SOURCE_TAB_MINE,
+    SOURCE_TAB_MINE_SELECT,
 } from "../common/ImageSource";
 import I18n from "react-native-i18n";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Models from "../models";
-import { getBottomSpace } from "react-native-iphone-x-helper";
-import { Sizing } from "../common/styles";
+import {getBottomSpace} from "react-native-iphone-x-helper";
+import {Sizing} from "../common/styles";
 
 const Tab = createBottomTabNavigator();
 

@@ -14,7 +14,7 @@ export const BLTabView = connect(state => ({
   const { badgeInfo } = props;
   const [index, setIndex] = React.useState(0);
 
-  const { routes, renderScene, tabStyle, scrollEnabled } = props;
+  const { routes, renderScene, tabStyle, scrollEnabled,showBadge } = props;
 
   React.useEffect(() => {
     let initIndex = !TextUtils.isNull(props.index) ? props.index : 0;
@@ -22,7 +22,7 @@ export const BLTabView = connect(state => ({
   }, []);
   const renderLabel = ({ route, focused }) => {
     return <Text style={focused ? styles.activeTitleStyle : styles.inactiveTitleStyle}>{route.title}
-      <Text style={{ fontSize: Sizing.t10 }}>{`(${badgeInfo[route.key]})`}</Text>
+      {showBadge&&<Text style={{ fontSize: Sizing.t10 }}>{`(${badgeInfo[route.key]})`}</Text>}
     </Text>;
   };
   const renderIndicator = useCallback(

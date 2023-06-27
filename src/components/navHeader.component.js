@@ -69,7 +69,7 @@ export const NumHeader = props => {
   const { title, num } = props;
   const headTitle = title + `（${num}）`;
   return (
-    <>
+    <View style={{backgroundColor: Colors.neutral.white}}>
       <StatusBar barStyle={"light-content"} translucent={false} backgroundColor={Colors.theme.primary} />
       <View style={{
         backgroundColor: Colors.theme.primary,
@@ -87,7 +87,7 @@ export const NumHeader = props => {
           </View>
         </SafeAreaView>
       </View>
-    </>
+    </View>
   );
 };
 HomeHeader.prototype = {

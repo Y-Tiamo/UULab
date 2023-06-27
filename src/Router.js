@@ -20,6 +20,16 @@ import VerifyPage from "./pages/Login/VerifyPage";
 import DeviceInfoPage from "./pages/Home/DeviceInfoPage";
 import ScanPage from "./pages/Common/ScanPage";
 import MessageListPage from "./pages/Messages/MessageListPage";
+import AccountSafePage from "./pages/Mine/AccountSafePage";
+import LanguagePage from "./pages/Mine/LanguagePage";
+import PermissionManagerPage from "./pages/Mine/PermissionManagerPage";
+import PrivacyManagePage from "./pages/Mine/PrivacyManagePage";
+import AboutAppPage from "./pages/Mine/AboutAppPage";
+import UpdateLogcatPage from "./pages/Mine/UpdateLogcatPage";
+import UserInfoPage from "./pages/Mine/UserInfoPage";
+import ServiceCenterPage from "./pages/Mine/ServiceCenterPage";
+import BindPhonePage from "./pages/Mine/BindPhonePage";
+import SetPasswordPage from "./pages/Mine/SetPasswordPage";
 
 const AppNavigator = createStackNavigator({
         SplashPage,
@@ -32,7 +42,17 @@ const AppNavigator = createStackNavigator({
         SpecialArticlePage,
 
         ScanPage,
-        MessageListPage
+        MessageListPage,
+        AccountSafePage,
+        LanguagePage,
+        PermissionManagerPage,
+        PrivacyManagePage,
+        AboutAppPage,
+        UpdateLogcatPage,
+        UserInfoPage,
+        ServiceCenterPage,
+        BindPhonePage,
+        SetPasswordPage,
     },
     {
         defaultNavigationOptions: {

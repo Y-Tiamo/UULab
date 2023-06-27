@@ -71,6 +71,7 @@ const HomePage = () => {
         renderScene={renderScene}
         tabStyle={{ width: Sizing.adaptionSpace(90)}}
         scrollEnabled={true}
+        showBadge={true}
       />
     </View>
   );

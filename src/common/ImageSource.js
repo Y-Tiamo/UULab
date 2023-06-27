@@ -74,4 +74,5 @@ export const SOURCE_SERVICE_EMAIL = require('../assets/ic_email.png');
 export const SOURCE_SERVICE_CUSTOMER = require('../assets/ic_customer.png');
 export const SOURCE_LANGUAGE_SELECT = require('../assets/ic_language_select.png');
 export const SOURCE_APP_LOGO = require('../assets/ic_app_logo.png');
+export const SOURCE_ARROW_RIGHT_GRAY = require('../assets/ic_arrow_right_gray.png');
 

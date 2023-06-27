@@ -1,3 +1,10 @@
+/**
+ * key命名规则：模块名_[页面名]_具体内容
+ * 模块分为：通用模块common、登录模块log、首页模块home、消息模块msg、科室模块lab、个人中心mine
+ * 页面名称：xxx_page，
+ * 完整key示例：
+ * 通用操作取消按钮:common_cancel:'取消
+ */
 export default {
   tab_home: '首页',
   tab_message: '消息',
@@ -12,6 +19,8 @@ export default {
   confirm:'确定',
   cancel:'取消',
   delete:'删除',
+  copy:'复制',
+  save:'保存',
 
 
   //登录-begin
@@ -65,6 +74,9 @@ export default {
   pn_not_match_key:'PN号和密钥不匹配',
   retry:'重试',
   //添加设备页面-end
+  //消息模块-begin
+
+  //消息模块-end
 
   //设备信息页面-begin
   device_info_action_pause:'暂停',
@@ -74,4 +86,47 @@ export default {
   device_info_tab_fix:'维护',
   device_info_tab_history:'历史',
   //设备信息页面-end
+
+  //科室页面-begin
+  lab_tab_instrument:'仪器',
+  lab_tab_member:'成员',
+  //科室页面-end
+
+  //个人中心页面-begin
+  mine_menu_account_safe:'账号与安全',
+  mine_menu_language:'语言',
+  mine_menu_system_permission_manager:'系统权限管理',
+  mine_menu_user_agreement_manager:'法律信息及隐私管理',
+  mine_menu_user_agreement_simple:'隐私政策摘要',
+  mine_menu_about_app:'关于APP',
+
+  mine_permission_is_granted:'已允许',
+  mine_permission_is_not_granted:'未允许',
+
+  mine_real_name:'真实姓名',
+  mine_log_out:'退出登录',
+  mine_person_center:'个人中心',
+
+
+  mine_service_center:'服务中心',
+  mine_service_center_phone:'专属热线',
+  mine_service_center_email:'Email',
+  mine_service_center_customer:'在线客服',
+  mine_service_center_copy_success:'复制成功',
+
+  mine_account_safe_bind_phone:'绑定手机号',
+  mine_account_safe_log_password:'登录密码',
+  mine_account_safe_delete_account:'注销账号',
+  mine_account_safe_set_password:'设置密码',
+  mine_account_safe_set_log_password:'设置登录密码',
+  mine_account_safe_verify:'验证',
+  mine_account_safe_verify_tip:'设置密码将通过短信验证码检验身份',
+  mine_account_safe_code_send_success_tip:'我们已发送一条验证码到',
+  mine_account_safe_set_password_tip:'请设置8~16位密码',
+  mine_account_safe_next_step:'下一步',
+
+  mine_about_app_current_version:'当前版本',
+  mine_about_app_version_introduction:'版本介绍',
+  mine_about_app_version_update_logcat:'版本更新日志',
+  //个人中心页面-end
 };

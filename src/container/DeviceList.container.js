@@ -181,7 +181,7 @@ const DeviceStatusIcon=(props)=>{
   const Icon=IconInfo[index]
   return(
     <View style={[styles.statusIconContainerStyle,{backgroundColor:Icon.backgroundColor}]}>
-      <Image source={Icon.icon} style={{marginBottom:Sizing.t4}}/>
+      <Image source={Icon.icon} style={{marginRight:Sizing.t4}}/>
       <Text style={{fontSize:Sizing.t12,color:Icon.color}}>{Icon.title}</Text>
     </View>
   )

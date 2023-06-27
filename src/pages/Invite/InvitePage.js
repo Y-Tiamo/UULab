@@ -9,33 +9,29 @@
  * * * * * * * * * * * * * * * * * * *
  */
 
-import React from "react";
-import {StyleSheet} from "react-native";
+import React, {useCallback} from "react";
+import {Animated, StyleSheet, Text, useWindowDimensions, View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {NumHeader} from "../../components/navHeader.component";
 import {connect} from "react-redux";
 import Models from "../../models";
 import I18n from "react-native-i18n";
-import {SceneMap, TabBar} from "react-native-tab-view";
+import {SceneMap, TabBar, TabView} from "react-native-tab-view";
 import DeviceList from "../../container/DeviceList.container";
 import {Colors, Sizing} from "../../common/styles";
 import {BLTabView} from "../../components/BLTabView.component";
-import CustomIndicator from "../../common/components/CustomIndicator";
-import {CollapsibleHeaderTabView} from "react-native-tab-view-collapsible-header";
-const initialLayout = { width: Sizing.screen.width };
 
 const InvitePage = () => {
     const routes = [
         {
-            key: "all",
-            title: I18n.t('device_status_all'),
+            key: "instrument",
+            title: I18n.t('lab_tab_instrument'),
         },
         {
-            key: "running",
-            title: I18n.t('device_status_running'),
+            key: "member",
+            title: I18n.t('lab_tab_member'),
         }
     ];
-    const [index, setIndex] = React.useState(0);
 
 
     /*-------------------------生命周期----------------------------*/
@@ -45,8 +41,12 @@ const InvitePage = () => {
     /*-------------------------子视图----------------------------*/
     const renderScene = SceneMap(
         {
-            all: () => <DeviceList status={0}/>,
-            running: () => <DeviceList status={1}/>,
+            instrument: () => <View style={{flex:1}}>
+                <Text>{I18n.t('lab_tab_instrument')}</Text>
+            </View>,
+            member: () => <View style={{flex:1}}>
+                <Text>{I18n.t('lab_tab_member')}</Text>
+            </View>,
         },
     );
     /*-------------------------主视图----------------------------*/
@@ -54,22 +54,10 @@ const InvitePage = () => {
         <>
             <NumHeader title={I18n.t('title_invite')} num={"0"}/>
             <SafeAreaView style={styles.container}>
-                <CollapsibleHeaderTabView
-                    lazy={true}
-                    navigationState={{ index, routes }}
+                <BLTabView
+                    index={0}
+                    routes={routes}
                     renderScene={renderScene}
-                    onIndexChange={setIndex}
-                    initialLayout={initialLayout}
-                    renderTabBar={tabBarProps => (
-                        <TabBar
-                            {...tabBarProps}
-                            tabStyle={{ height: Sizing.adaptionSpace(48) }}
-                            inactiveColor={Colors.neutral.gray66}
-                            activeColor={Colors.theme.primary}
-                            indicatorContainerStyle={[{ backgroundColor: Colors.neutral.grayF5 }]}
-                            renderIndicator={props => <CustomIndicator {...props} />}
-                        />
-                    )}
                 />
             </SafeAreaView>
         </>
@@ -83,6 +71,6 @@ export default Invite;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#F5F5F5",
+        backgroundColor: Colors.neutral.white,
     },
 });

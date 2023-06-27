@@ -12,6 +12,15 @@ export const EmptyDeviceList = props => {
   );
 };
 
+export const EmptyVersionList = props => {
+  return (
+      <View style={[styles.content, props.style]}>
+        <Image style={styles.imgStyle} source={SOURCE_EMPTY_DEVICES_LIST} />
+        <Text style={styles.textStyle}>暂无版本记录～</Text>
+      </View>
+  );
+};
+
 export const NormalEmptyList = props => {
   const { icon, desc } = props;
   return (
