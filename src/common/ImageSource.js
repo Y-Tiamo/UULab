@@ -56,4 +56,22 @@ export const SOURCE_MESSAGE_CLOSE = require('../assets/ic_message_close.png');
 export const SOURCE_MESSAGE_EXIT_GROUP = require('../assets/ic_message_exit_group.png');
 export const SOURCE_MESSAGE_GROUP = require('../assets/ic_message_group.png');
 export const SOURCE_MESSAGE_INSTRUMENT = require('../assets/ic_message_instrument.png');
+//科室
+//我的
+export const SOURCE_DEFAULT_AVATAR = require('../assets/ic_default_avatar.png');
+export const SOURCE_TO_PERSON_CENTER = require('../assets/ic_person_center.png');
+export const SOURCE_BG_PERSON = require('../assets/ic_person_bg.png');
+export const SOURCE_TO_SERVICE_CENTER = require('../assets/ic_service_center.png');
+export const SOURCE_MENU_ACCOUNT_SAFE = require('../assets/ic_account_safe.png');
+export const SOURCE_MENU_LANGUAGE = require('../assets/ic_language.png');
+export const SOURCE_MENU_PERMISSION = require('../assets/ic_permission.png');
+export const SOURCE_MENU_PRIVACY = require('../assets/ic_privacy.png');
+export const SOURCE_MENU_PRIVACY_SIMPLE = require('../assets/ic_privacy_simple.png');
+export const SOURCE_MENU_ABOUT = require('../assets/ic_about.png');
+export const SOURCE_TAKE_IMAGE = require('../assets/ic_take_img.png');
+export const SOURCE_SERVICE_PHONE = require('../assets/ic_phone.png');
+export const SOURCE_SERVICE_EMAIL = require('../assets/ic_email.png');
+export const SOURCE_SERVICE_CUSTOMER = require('../assets/ic_customer.png');
+export const SOURCE_LANGUAGE_SELECT = require('../assets/ic_language_select.png');
+export const SOURCE_APP_LOGO = require('../assets/ic_app_logo.png');
 
