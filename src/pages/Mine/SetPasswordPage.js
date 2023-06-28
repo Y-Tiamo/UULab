@@ -72,8 +72,8 @@ const SetPasswordPage = () => {
     /*-------------------------事件----------------------------*/
     /*-------------------------子视图----------------------------*/
     function renderTips() {
-        let step2Tips=I18n.t('mine_account_safe_code_send_success_tip')+getTel('19999999999')
-        let tips=step===0?I18n.t('mine_account_safe_verify_tip'):step===1?step2Tips:I18n.t('mine_account_safe_set_password_tip')
+        let step2Tips=I18n.t('code_send_success_tip')+getTel('19999999999')
+        let tips=step===0?I18n.t('reset_password_tip'):step===1?step2Tips:I18n.t('input_password_tip')
         return<View style={{marginTop:Sizing.adaptionSpace(60)}}>
             <Text style={[styles.tipTextStyle,step===0&&{alignSelf:'center'}]}>{tips}</Text>
         </View>
@@ -86,14 +86,14 @@ const SetPasswordPage = () => {
                     hasError={false}
                     showAction={false}
                     showTips={false}
-                    placeholder={I18n.t('enter_password')}
+                    placeholder={I18n.t('input_password')}
                     style={{marginTop: Sizing.adaptionSpace(30)}}
                     onChangeText={(text) => {
                         onChangeText(text, 1);
                     }} />
                 <InputPasswordView
                     hasError={hasError}
-                    placeholder={I18n.t('enter_password_again')}
+                    placeholder={I18n.t('input_password_again')}
                     showAction={false}
                     showTips={hasError}
                     style={{marginTop: Sizing.adaptionSpace(30)}}
@@ -117,7 +117,7 @@ const SetPasswordPage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_account_safe_set_password")}/>
+            <NavHeader title={I18n.t("set_password")}/>
             <ScrollView style={styles.scrollStyle}>
                 {renderTips()}
                 {step===1&&<InputVerifyCode/>}

@@ -31,9 +31,9 @@ import Toast from "teaset/components/Toast/Toast";
 
 const AccountSafePage = () => {
     const MENU = [
-        {title: I18n.t('mine_account_safe_bind_phone'), content: getTel('19999999999'), rootName: 'BindPhonePage'},
-        {title: I18n.t('mine_account_safe_log_password'), content: '', rootName: 'SetPasswordPage'},
-        {title: I18n.t('mine_account_safe_delete_account'), content: '', rootName: ''},
+        {title: I18n.t('bind_phone'), content: getTel('19999999999'), rootName: 'BindPhonePage'},
+        {title: I18n.t('login_password'), content: '', rootName: 'SetPasswordPage'},
+        {title: I18n.t('cancel_the_account'), content: '', rootName: ''},
     ]
     /*-------------------------生命周期-------------------------*/
     /*-------------------------API----------------------------*/
@@ -42,10 +42,10 @@ const AccountSafePage = () => {
     const onPressMenu = (index) => {
         if (index === 2) {
             AlertOverlay.ConfirmBottom.show(
-                I18n.t('mine_delete_account_tip'),
+                I18n.t('cancel_the_account_tip'),
                 Colors.theme.red,
                 () => {
-                    Toast.success(I18n.t('mine_delete_account_success_tip'))
+                    Toast.success(I18n.t('cancel_success'))
                 }, I18n.t('confirm'))
             return
         }
@@ -55,7 +55,7 @@ const AccountSafePage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_menu_account_safe")}/>
+            <NavHeader title={I18n.t("account_and_safe")}/>
             <ScrollView contentContainerStyle={styles.scrollStyle}>
                 {MENU.map((item, index) => {
                     return (<DoubleClick

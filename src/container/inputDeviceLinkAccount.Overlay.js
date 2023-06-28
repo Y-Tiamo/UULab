@@ -45,12 +45,12 @@ const InputContentView = props => {
   return (
     <View style={styles.contentStyle}>
       <View style={{ marginVertical: Sizing.adaptionSpace(20), justifyContent: "center" }}>
-        <Text style={styles.titleStyle}>{I18n.t("local_device_account")}</Text>
+        <Text style={styles.titleStyle}>{I18n.t("local_instrument_account")}</Text>
       </View>
       <View style={styles.inputContainer}>
         <TextInput
           style={[styles.textStyle]}
-          placeholder={I18n.t('please_enter_account')}
+          placeholder={I18n.t('please_input_account')}
           numberOfLines={1}
           onChangeText={text => {
             setAccount(text);
@@ -60,7 +60,7 @@ const InputContentView = props => {
       <View style={styles.inputContainer}>
         <TextInput
           style={[styles.textStyle]}
-          placeholder={I18n.t('please_enter_password')}
+          placeholder={I18n.t('please_input_password')}
           numberOfLines={1}
           onChangeText={text => {
             setPassword(text);

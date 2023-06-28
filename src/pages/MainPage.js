@@ -72,28 +72,28 @@ const MainPage = () => {
           name="Home"
           component={Home}
           options={{
-            tabBarLabel: I18n.t('tab_home'),
+            tabBarLabel: I18n.t('home'),
           }}
         />
         <Tab.Screen
           name="Message"
           component={Message}
           options={{
-            tabBarLabel: I18n.t('tab_message'),
+            tabBarLabel: I18n.t('message'),
           }}
         />
         <Tab.Screen
           name="Invite"
           component={Invite}
           options={{
-            tabBarLabel: I18n.t('tab_invite'),
+            tabBarLabel: I18n.t('lab'),
           }}
         />
         <Tab.Screen
           name="Mine"
           component={Mine}
           options={{
-            tabBarLabel: I18n.t('tab_mine'),
+            tabBarLabel: I18n.t('mine'),
           }}
         />
       </Tab.Navigator>

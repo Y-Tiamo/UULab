@@ -30,17 +30,17 @@ import Toast from "teaset/components/Toast/Toast";
 const ServiceCenterPage = () => {
     const MENU = [
         {
-            title: I18n.t('mine_service_center_phone'),
+            title: I18n.t('exclusive_hotline'),
             icon: SOURCE_SERVICE_PHONE,
             content: '110'
         },
         {
-            title: I18n.t('mine_service_center_email'),
+            title: I18n.t('email'),
             icon: SOURCE_SERVICE_EMAIL,
             content: ''
         },
         {
-            title: I18n.t('mine_service_center_customer'),
+            title: I18n.t('online_customer_service'),
             icon: SOURCE_SERVICE_CUSTOMER,
             content: ''
         },
@@ -59,7 +59,7 @@ const ServiceCenterPage = () => {
         } else if (index === 1) {
             AlertOverlay.ConfirmBottom.show('1888888778@qq.com', Colors.theme.primary, () => {
                 Clipboard.setString(MENU[index].content)
-                Toast.success(I18n.t('mine_service_center_copy_success'))
+                Toast.success(I18n.t('copy_success'))
             }, I18n.t('copy'))
         } else {
 
@@ -79,7 +79,7 @@ const ServiceCenterPage = () => {
                 style={styles.backStyle}>
                 {IMG_COMMON_ARR_LeftBlack}
             </DoubleClick>
-            <Text style={styles.titleStyle}>{I18n.t('mine_service_center')}</Text>
+            <Text style={styles.titleStyle}>{I18n.t('service_center')}</Text>
         </ImageBackground>)
     }
 

@@ -60,7 +60,7 @@ const PermissionManagerPage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_menu_system_permission_manager")}/>
+            <NavHeader title={I18n.t("system_permission_manage")}/>
             <ScrollView contentContainerStyle={styles.scrollStyle}>
                 {MENU.map((item, index) => {
                     return (<DoubleClick
@@ -74,7 +74,7 @@ const PermissionManagerPage = () => {
                         </View>
                         <View style={[Layout.mainAxis.center, Layout.flex.row]}>
                             <Text style={styles.contentStyle}>
-                                {item.is_granted ? I18n.t('mine_permission_is_granted') : I18n.t('mine_permission_is_not_granted')}
+                                {item.is_granted ? I18n.t('allowed') : I18n.t('not_allowed')}
                             </Text>
                             <Image source={SOURCE_ARROW_RIGHT_GRAY}/>
                         </View>

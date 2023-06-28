@@ -154,7 +154,7 @@ const MessagePage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <>
-            <NumHeader title={I18n.t('title_message')} num={unreadCount}/>
+            <NumHeader title={I18n.t('message')} num={unreadCount}/>
             <SafeAreaView style={styles.container}>
                 <ScrollView style={[Layout.flex.full, {paddingTop: Sizing.adaptionSpace(30)}]}>
                     {messages.map((item, index) => {

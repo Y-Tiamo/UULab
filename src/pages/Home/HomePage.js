@@ -28,23 +28,23 @@ const HomePage = () => {
   const routes = [
     {
       key: "all",
-      title: I18n.t('device_status_all'),
+      title: I18n.t('all'),
     },
     {
       key: "running",
-      title: I18n.t('device_status_running'),
+      title: I18n.t('running'),
     },
     {
       key: "waiting",
-      title: I18n.t('device_status_standby'),
+      title: I18n.t('standby'),
     },
     {
       key: "offline",
-      title: I18n.t('device_status_offline'),
+      title: I18n.t('offline'),
     },
     {
       key: "error",
-      title: I18n.t('device_status_fault'),
+      title: I18n.t('breakdown'),
     },
   ];
   /*-------------------------API----------------------------*/

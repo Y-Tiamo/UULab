@@ -67,7 +67,7 @@ const BindPhonePage = () => {
     function renderConfirmBtn() {
         let opacity = isComplete ? 1 : 0.5;
         let marginTop = step === 0 ? Sizing.adaptionSpace(262) : Sizing.adaptionSpace(192);
-        let title = step === 0 ? I18n.t('mine_account_safe_next_step') : I18n.t('confirm')
+        let title = step === 0 ? I18n.t('next') : I18n.t('confirm')
         return <OpacityPrimaryButton
             title={title}
             style={{...styles.btnStyle, marginTop}}
@@ -76,8 +76,8 @@ const BindPhonePage = () => {
     }
 
     function renderPhone() {
-        let tips=step===1?I18n.t('mine_input_new_phone_tip'):I18n.t('mine_input_current_phone_tip')
-        let placeholder=step===1?I18n.t('mine_input_new_phone_placeholder'):I18n.t('mine_input_current_phone_placeholder')
+        let tips=step===1?I18n.t('mine_input_new_phone_tip'):I18n.t('current_current_phone_tip')
+        let placeholder=step===1?I18n.t('input_new_phone_placeholder'):I18n.t('input_current_phone_placeholder')
         return <View style={styles.inputPhoneStyle}>
             <Text style={styles.tipTextStyle}>{tips}</Text>
             <View style={styles.inputContainerStyle}>
@@ -95,7 +95,7 @@ const BindPhonePage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_account_safe_bind_phone")}/>
+            <NavHeader title={I18n.t("bind_phone")}/>
             <ScrollView style={styles.scrollStyle}>
                 {renderPhone()}
                 {step === 1 && <InputVerifyCode/>}
@@ -114,12 +114,12 @@ export const InputVerifyCode = () => {
     const [hasError,setHasError]=React.useState(false)
     const onChangeText = (text,type) => {}
     const onPressSend = () => {}
-    let title = time<60 ? I18n.t('log_on_re_send') : I18n.t('log_send_code')
+    let title = time<60 ? I18n.t('re_send') : I18n.t('send_code')
     return (<View>
         <View style={styles.inputCodeStyle}>
             <TextInput
                 style={styles.inputStyle}
-                placeholder={I18n.t('mine_input_code')}
+                placeholder={I18n.t('input_code')}
                 onChangeText={(text) => {
                     onChangeText(text, 0)
                 }}
@@ -131,7 +131,7 @@ export const InputVerifyCode = () => {
                 <Text>{title}{time<60&&<Text>{`(${time})`}</Text>}</Text>
             </DoubleClick>
         </View>
-        {hasError && <Text style={[styles.errorTipTextStyle]}>{I18n.t('log_on_re_enter_code')}</Text>}
+        {hasError && <Text style={[styles.errorTipTextStyle]}>{I18n.t('code_error')}</Text>}
     </View>)
 }
 const styles = StyleSheet.create({

@@ -12,7 +12,7 @@
 import React, {useCallback} from "react";
 import {Animated, StyleSheet, Text, useWindowDimensions, View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {NumHeader} from "../../components/navHeader.component";
+import {HomeHeader, NumHeader} from "../../components/navHeader.component";
 import {connect} from "react-redux";
 import Models from "../../models";
 import I18n from "react-native-i18n";
@@ -25,11 +25,11 @@ const InvitePage = () => {
     const routes = [
         {
             key: "instrument",
-            title: I18n.t('lab_tab_instrument'),
+            title: I18n.t('instrument'),
         },
         {
             key: "member",
-            title: I18n.t('lab_tab_member'),
+            title: I18n.t('member'),
         }
     ];
 
@@ -42,17 +42,17 @@ const InvitePage = () => {
     const renderScene = SceneMap(
         {
             instrument: () => <View style={{flex:1}}>
-                <Text>{I18n.t('lab_tab_instrument')}</Text>
+                <Text>{I18n.t('instrument')}</Text>
             </View>,
             member: () => <View style={{flex:1}}>
-                <Text>{I18n.t('lab_tab_member')}</Text>
+                <Text>{I18n.t('member')}</Text>
             </View>,
         },
     );
     /*-------------------------主视图----------------------------*/
     return (
         <>
-            <NumHeader title={I18n.t('title_invite')} num={"0"}/>
+            <HomeHeader title={"UULabs"} isManager={true} />
             <SafeAreaView style={styles.container}>
                 <BLTabView
                     index={0}

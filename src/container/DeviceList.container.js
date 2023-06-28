@@ -148,31 +148,31 @@ const DeviceStatusIcon=(props)=>{
   let index=status-1
   const IconInfo=[
     {
-      title:I18n.t('device_status_running'),
+      title:I18n.t('running'),
       icon:SOURCE_INSTRUMENT_RUN,
       backgroundColor:'rgba(60, 189, 97, 0.1)',
       color:"rgba(60, 189, 97, 1)"
     },
     {
-      title:I18n.t('device_status_standby'),
+      title:I18n.t('standby'),
       icon:SOURCE_INSTRUMENT_STANDBY,
       backgroundColor:'rgba(23, 209, 235, 0.1)',
       color:"rgba(23, 209, 235, 1)"
     },
     {
-      title:I18n.t('device_status_offline'),
+      title:I18n.t('offline'),
       icon:SOURCE_INSTRUMENT_OFFLINE,
       backgroundColor:'rgba(65, 114, 217, 0.1)',
       color:"rgba(65, 114, 217, 1)"
     },
     {
-      title:I18n.t('device_status_fault'),
+      title:I18n.t('breakdown'),
       icon:SOURCE_INSTRUMENT_ERROR,
       backgroundColor:'rgba(255, 44, 0, 0.1)',
       color:"rgba(255, 44, 0, 1)"
     },
     {
-      title:I18n.t('device_status_fix'),
+      title:I18n.t('repair'),
       icon:SOURCE_INSTRUMENT_MAIN,
       backgroundColor:'rgba(239, 147, 0, 0.1)',
       color:"rgba(239, 147, 0, 1)"

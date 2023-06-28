@@ -39,7 +39,7 @@ const PrivacyManagePage = () => {
   /*-------------------------主视图----------------------------*/
   return (
     <SafeAreaView style={styles.container}>
-      <NavHeader title={I18n.t("mine_menu_user_agreement_manager")} />
+      <NavHeader title={I18n.t("legacy_and_privacy_manage")} />
       <ScrollView contentContainerStyle={styles.scrollStyle}>
         {MENU.map((item,index)=>{
           return(<DoubleClick

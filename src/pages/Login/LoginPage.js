@@ -70,7 +70,7 @@ const LoginPage = () => {
       <InputPasswordView
         hasError={hasError}
         showAction={true}
-        tip={hasError ? I18n.t('log_tip_error_password') : ""}
+        tip={hasError ? I18n.t('account_or_password_error') : ""}
         showTips={hasError}
         style={{ marginTop: Sizing.adaptionSpace(24) }}
         onChangeText={(text) => {
@@ -101,7 +101,7 @@ const LoginPage = () => {
   }
 
   function renderSwitchLogType() {
-    let loginText = loginType === LoginType.PWD_LOGIN ? I18n.t('log_on_with_code') : I18n.t('log_on_with_password');
+    let loginText = loginType === LoginType.PWD_LOGIN ? I18n.t('code_login') : I18n.t('password_login');
     return (
       <View style={styles.switchContainer}>
         <DoubleClick
@@ -113,7 +113,7 @@ const LoginPage = () => {
             });
           }}
         >
-          <Text style={styles.normalTextStyle}>{I18n.t('register_now')}</Text>
+          <Text style={styles.normalTextStyle}>{I18n.t('register')}</Text>
         </DoubleClick>
         <DoubleClick onPress={onClickChangeLog}>
           <Text style={styles.normalTextStyle}>{loginText}</Text>
@@ -234,7 +234,7 @@ export const InputAccountView = (props) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
-        placeholder={I18n.t("log_phone_or_email")}
+        placeholder={I18n.t("phone_or_email")}
         style={styles.inputTextStyle}
         onChangeText={onChangeText}
       />
@@ -249,7 +249,7 @@ export const InputPasswordView = (props) => {
     <View style={Layout.flex.column}>
       <View style={[styles.inputContainer, styles.inputPwdContainer, style]}>
         <TextInput
-          placeholder={placeholder || I18n.t('log_password')}
+          placeholder={placeholder || I18n.t('password')}
           style={[styles.inputTextStyle, Layout.flex.full]}
           secureTextEntry={showPwd}
           onChangeText={onChangeText}
@@ -262,7 +262,7 @@ export const InputPasswordView = (props) => {
       </View>
       <View style={[Layout.flex.row, Layout.crossAxis.spaceBetween]}>
         {showTips ? <Text
-            style={[styles.errorTipTextStyle, { marginTop: Sizing.t4, color: tipColor }]}>{tip || I18n.t('log_tip_error_password')}</Text> :
+            style={[styles.errorTipTextStyle, { marginTop: Sizing.t4, color: tipColor }]}>{tip || I18n.t('account_or_password_error')}</Text> :
           <View />}
         {showAction &&
           <DoubleClick
@@ -270,7 +270,7 @@ export const InputPasswordView = (props) => {
               NavigationService.navigate("VerifyPage");
             }
             }>
-            <Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>{I18n.t('forget_password')}</Text>
+            <Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>{I18n.t('forgot_password')}</Text>
           </DoubleClick>
         }
       </View>
@@ -287,18 +287,18 @@ export const InputCodeView = (props) => {
     <View style={Layout.flex.column}>
       <View style={[styles.inputContainer, styles.inputPwdContainer, style]}>
         <TextInput
-          placeholder={I18n.t('log_code')}
+          placeholder={I18n.t('code')}
           style={[styles.inputTextStyle, Layout.flex.full]}
           onChangeText={(text) => {
             onChangeText(text, 1);
           }}
         />
         <DoubleClick onPress={onClickSendCode}>
-          <Text style={styles.sendCodeTextStyle}>{send ? I18n.t('log_on_re_send') : I18n.t('log_send_code')}</Text>
+          <Text style={styles.sendCodeTextStyle}>{send ? I18n.t('re_send') : I18n.t('send_code')}</Text>
         </DoubleClick>
       </View>
       {hasError && <View style={[Layout.flex.row, Layout.crossAxis.spaceBetween]}>
-        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t4 }]}>{I18n.t('log_on_re_enter_code')}</Text>
+        <Text style={[styles.errorTipTextStyle, { marginTop: Sizing.t4 }]}>{I18n.t('code_error')}</Text>
         {/*<Text style={[styles.normalTextStyle, { marginTop: Sizing.t20 }]}>接收不到验证码</Text>*/}
       </View>}
     </View>

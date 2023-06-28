@@ -123,12 +123,12 @@ const AddDevicesPage = () => {
           <View style={[Layout.flex.row, Layout.mainAxis.center]}>
             <View style={[Layout.flex.full]}>
               <InputDeviceInfo
-                placeholder={I18n.t("input_device_pn")}
+                placeholder={I18n.t("input_instrument_pn_number")}
                 value={pn}
                 onChangeText={onChangePN}
               />
               <InputDeviceInfo
-                placeholder={I18n.t("input_device_link_key")}
+                placeholder={I18n.t("input_instrument_link_key")}
                 value={key}
                 onChangeText={onChangeKey}
               />
@@ -136,7 +136,7 @@ const AddDevicesPage = () => {
             {renderScanIcon()}
           </View>
           <InputDeviceInfo
-            placeholder={I18n.t("input_or_select_device_room")}
+            placeholder={I18n.t("input_or_select_instrument_lab")}
             value={name}
             onChangeText={onChangeName}
             showIcon={true}
@@ -161,7 +161,7 @@ const AddDevicesPage = () => {
                style={{ marginTop: Sizing.adaptionSpace(156), marginBottom: Sizing.adaptionSpace(66) }} />
         <View style={[Layout.mainAxis.center,{marginBottom:Sizing.adaptionSpace(247)}]}>
           <Text style={{fontSize:Sizing.adaptionSpace(24),color:Colors.neutral.gray33,fontWeight:'500'}}>{I18n.t("connect_failed")}</Text>
-          <Text style={{fontSize:Sizing.adaptionSpace(14),color:Colors.neutral.gray99,marginTop: Sizing.t10}}>{I18n.t("pn_not_match_key")}</Text>
+          <Text style={{fontSize:Sizing.adaptionSpace(14),color:Colors.neutral.gray99,marginTop: Sizing.t10}}>{I18n.t("pn_number_not_match_key")}</Text>
         </View>
       </View>
         <PrimaryButtonWithBorder
@@ -175,7 +175,7 @@ const AddDevicesPage = () => {
   /*-------------------------主视图----------------------------*/
   return (
     <SafeAreaView style={styles.container}>
-      <NavHeader title={I18n.t("add_device")} />
+      <NavHeader title={I18n.t("add_instrument")} />
       {isError ? renderErrorView() : renderInputView()}
     </SafeAreaView>
   );

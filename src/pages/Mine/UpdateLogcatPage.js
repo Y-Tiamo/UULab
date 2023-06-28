@@ -47,7 +47,7 @@ const UpdateLogcatPage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_about_app_version_update_logcat")}/>
+            <NavHeader title={I18n.t("version_update_log")}/>
             <VersionList/>
         </SafeAreaView>
     );

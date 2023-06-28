@@ -84,13 +84,13 @@ const VerifyPage = () => {
           hasError={false}
           showAction={false}
           showTips={false}
-          placeholder={I18n.t('enter_password')}
+          placeholder={I18n.t('input_password')}
           onChangeText={(text) => {
             onChangeText(text, 1);
           }} />
         <InputPasswordView
           hasError={false}
-          placeholder={I18n.t('enter_password_again')}
+          placeholder={I18n.t('input_password_again')}
           showAction={false}
           showTips={true}
           tip={I18n.t('password_length_tip')}

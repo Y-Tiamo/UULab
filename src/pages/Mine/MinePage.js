@@ -37,20 +37,20 @@ import PrivacyManagePage from "./PrivacyManagePage";
 import AboutAppPage from "./AboutAppPage";
 
 const MENU = [
-    {title: I18n.t('mine_menu_account_safe'), icon: SOURCE_MENU_ACCOUNT_SAFE, rootName: 'AccountSafePage'},
-    {title: I18n.t('mine_menu_language'), icon: SOURCE_MENU_LANGUAGE, rootName: 'LanguagePage'},
+    {title: I18n.t('account_and_safe'), icon: SOURCE_MENU_ACCOUNT_SAFE, rootName: 'AccountSafePage'},
+    {title: I18n.t('language'), icon: SOURCE_MENU_LANGUAGE, rootName: 'LanguagePage'},
     {
-        title: I18n.t('mine_menu_system_permission_manager'),
+        title: I18n.t('system_permission_manage'),
         icon: SOURCE_MENU_PERMISSION,
         rootName: 'PermissionManagerPage'
     },
-    {title: I18n.t('mine_menu_user_agreement_manager'), icon: SOURCE_MENU_PRIVACY, rootName: 'PrivacyManagePage'},
+    {title: I18n.t('legacy_and_privacy_manage'), icon: SOURCE_MENU_PRIVACY, rootName: 'PrivacyManagePage'},
     {
-        title: I18n.t('mine_menu_user_agreement_simple'),
+        title: I18n.t('privacy_desc'),
         icon: SOURCE_MENU_PRIVACY_SIMPLE,
         rootName: 'SpecialArticlePage'
     },
-    {title: I18n.t('mine_menu_about_app'), icon: SOURCE_MENU_ABOUT, rootName: 'AboutAppPage'},
+    {title: I18n.t('about_app'), icon: SOURCE_MENU_ABOUT, rootName: 'AboutAppPage'},
 ]
 const MinePage = () => {
     /*-------------------------生命周期----------------------------*/
@@ -93,7 +93,7 @@ const MinePage = () => {
                             onPress={() => {
                                 if (item.rootName === 'SpecialArticlePage') {
                                     NavigationService.navigate(item.rootName, {
-                                        title: I18n.t("mine_menu_user_agreement_simple"),
+                                        title: I18n.t("privacy_desc"),
                                     });
                                 } else {
                                     NavigationService.navigate(item.rootName)

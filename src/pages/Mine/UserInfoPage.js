@@ -124,7 +124,7 @@ const UserInfoPage = () => {
                 <Text style={styles.realNameStyle}>{I18n.t('mine_real_name')}</Text>
                 <TextInput
                     style={styles.realNameInputStyle}
-                    placeholder={I18n.t('please_enter_your_real_name')}
+                    placeholder={I18n.t('input_name')}
                     textAlign={"right"}
                 />
             </View>
@@ -135,7 +135,7 @@ const UserInfoPage = () => {
     return (
         <SafeAreaView style={styles.container}>
             <NavHeader
-                title={I18n.t("mine_person_center")}
+                title={I18n.t("personal_center")}
                 rightTitle={I18n.t("save")}
                 onPressRight={onPressRight}
             />

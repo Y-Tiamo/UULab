@@ -37,9 +37,9 @@ const initialLayout = { width: Sizing.screen.width };
 const DeviceInfoPage = (props) => {
   const { item } = props.navigation.state.params;
   const [routes] = React.useState([
-    { key: "state", title: I18n.t("device_info_tab_status") },
-    { key: "fix", title: I18n.t("device_info_tab_fix") },
-    { key: "history", title: I18n.t("device_info_tab_history") },
+    { key: "state", title: I18n.t("state") },
+    { key: "fix", title: I18n.t("repair") },
+    { key: "history", title: I18n.t("history") },
   ]);
   const [index, setIndex] = React.useState(0);
   /*-------------------------生命周期-------------------------*/
@@ -111,13 +111,13 @@ const DeviceHeader = (props) => {
           style={[styles.actionPauseStyle, { borderColor: pauseColor }]}>
           <Image />
           <Text
-            style={[styles.pauseTextStyle, { color: pauseColor }]}>{isPause ? I18n.t("device_info_action_continue") : I18n.t("device_info_action_pause")}</Text>
+            style={[styles.pauseTextStyle, { color: pauseColor }]}>{isPause ? I18n.t("continue") : I18n.t("pause")}</Text>
         </DoubleClick>
         <DoubleClick
           onPress={onClickStop}
           style={[styles.actionStopStyle, { borderColor: stopColor }]}>
           <Image />
-          <Text style={[styles.stopTextStyle, { color: stopColor }]}>{I18n.t("device_info_action_stop")}</Text>
+          <Text style={[styles.stopTextStyle, { color: stopColor }]}>{I18n.t("stop")}</Text>
         </DoubleClick>
       </View>
     </View>

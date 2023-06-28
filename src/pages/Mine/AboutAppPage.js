@@ -36,16 +36,16 @@ const AboutAppPage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_menu_about_app")}/>
+            <NavHeader title={I18n.t("about_app")}/>
             <ScrollView contentContainerStyle={styles.scrollStyle}>
                 <Image source={SOURCE_APP_LOGO} style={styles.logoStyle}/>
-                <Text style={styles.currentVersionStyle}>{I18n.t('mine_about_app_current_version')}：V{version}</Text>
+                <Text style={styles.currentVersionStyle}>{I18n.t('current_version')}：V{version}</Text>
                 <DoubleClick
                     onPress={()=>{
                         NavigationService.navigate('UpdateLogcatPage')
                     }}
                     style={styles.itemStyle}>
-                    <Text style={styles.enuTitleStyle}>{I18n.t('mine_about_app_version_introduction')}</Text>
+                    <Text style={styles.enuTitleStyle}>{I18n.t('version_introduction')}</Text>
                     <Image source={SOURCE_ARROW_RIGHT_GRAY}/>
                 </DoubleClick>
             </ScrollView>

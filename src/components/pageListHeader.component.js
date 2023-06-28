@@ -31,7 +31,7 @@ export const DeviceHeader=()=>{
       }}
     >
       <Image source={SOURCE_MANAGER_ADD_DEVICES_GRAY} style={{ marginRight: Sizing.t10 }} />
-      <Text style={styles.addTextStyle}>{I18n.t('add_device')}</Text>
+      <Text style={styles.addTextStyle}>{I18n.t('add_instrument')}</Text>
     </DoubleClick>
   );
 }

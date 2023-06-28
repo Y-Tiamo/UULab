@@ -49,7 +49,7 @@ const LanguagePage = () => {
     /*-------------------------主视图----------------------------*/
     return (
         <SafeAreaView style={styles.container}>
-            <NavHeader title={I18n.t("mine_menu_language")}/>
+            <NavHeader title={I18n.t("language")}/>
             <ScrollView contentContainerStyle={styles.scrollStyle}>
                 {MENU.map((item, index) => {
                     let isSelect = language === item.language || language === item.env
