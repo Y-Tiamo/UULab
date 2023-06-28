@@ -4,6 +4,8 @@
  * 页面名称：xxx_page，
  * 完整key示例：
  * 通用操作取消按钮:common_cancel:'取消
+ *
+ * 备注：当前第一版开发时先管理简体中文模块，开发完成之后需要匹配繁体中文和英文
  */
 export default {
   tab_home: '首页',
@@ -21,6 +23,9 @@ export default {
   delete:'删除',
   copy:'复制',
   save:'保存',
+  verify:'验证',
+  next:'下一步',
+  success:'操作成功',
 
 
   //登录-begin
@@ -124,6 +129,13 @@ export default {
   mine_account_safe_code_send_success_tip:'我们已发送一条验证码到',
   mine_account_safe_set_password_tip:'请设置8~16位密码',
   mine_account_safe_next_step:'下一步',
+  mine_input_new_phone_tip:'请输入需要绑定的新手机号',
+  mine_input_current_phone_tip:'为了您的帐号安全，请输入当前绑定的手机号',
+  mine_input_current_phone_placeholder:'输入当前绑定的手机号',
+  mine_input_new_phone_placeholder:'输入需要绑定的新手机号',
+  mine_input_code:'请输入验证码',
+  mine_delete_account_tip:'是否要注销当前登录账号',
+  mine_delete_account_success_tip:'注销成功',
 
   mine_about_app_current_version:'当前版本',
   mine_about_app_version_introduction:'版本介绍',

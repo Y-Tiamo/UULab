@@ -1,4 +1,5 @@
 import { PixelRatio, Dimensions, Platform, Linking } from "react-native";
+import TextUtils from "./TextUtils";
 
 export let screenW = Dimensions.get("window").width;
 export let screenH = Dimensions.get("window").height;
@@ -28,6 +29,19 @@ export function RondomPass(len) {
   }
   return pwd;
 
+}
+
+export function inputComplete(...args){
+  let isComplete=true
+  if (args.length===0){
+    return isComplete
+  }
+  args.map(arg=>{
+    if (TextUtils.isEmptyStr(arg)){
+      isComplete=false
+    }
+  })
+  return isComplete
 }
 
 /**

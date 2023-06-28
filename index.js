@@ -27,8 +27,8 @@ I18n.defaultLocale = "zh-CN";
 I18n.fallbacks = true;
 I18n.translations = {
   "zh-CN": zhCN,
-  "zh-TW": zhTW,
-  en,
+  // "zh-TW": zhTW,
+  // en,
 };
 // 防止系统字体变大导致显示异常
 TextInput.defaultProps = { ...TextInput.defaultProps, allowFontScaling: false };

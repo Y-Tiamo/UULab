@@ -124,6 +124,9 @@ export default {
   mine_account_safe_code_send_success_tip:'我们已发送一条验证码到',
   mine_account_safe_set_password_tip:'请设置8~16位密码',
   mine_account_safe_next_step:'下一步',
+  mine_input_new_phone_tip:'请输入需要绑定的新手机号',
+  mine_input_current_phone_tip:'为了您的帐号安全，请输入当前绑定的手机号',
+  mine_input_current_phone_placeholder:'输入当前绑定的手机号',
 
   mine_about_app_current_version:'当前版本',
   mine_about_app_version_introduction:'版本介绍',
